@@ -73,9 +73,30 @@ window.addEventListener('load', function(){
 })
 
 function spawnNavBar(){
-  
-  const allBtnNavBar = document.querySelectorAll('.btn_nav_bar');
+
   const allTraitNavBar = document.querySelectorAll('.trait_nav_bar');
+  const allLiBtnNavBar = document.querySelectorAll('.li_btn_nav_bar');
+  const allLiBtnNavBarSlow = document.querySelectorAll('.li_btn_nav_bar_slow');
 
+  allTraitNavBar.forEach(trait => {
+    trait.style.height = "50px"; 
+  });
 
+  setTimeout(() => {
+    allLiBtnNavBar.forEach(btn => {
+      btn.style.transform = "translateY(0px)";
+      btn.style.opacity = "1";
+    });
+    allLiBtnNavBarSlow.forEach(btn => {
+      btn.style.transform = "translateY(0px)";
+      btn.style.opacity = "1";
+    })
+    home()
+  }, 2000);
+}
+
+function home(){
+  const home = document.querySelector("#home");
+
+  
 }

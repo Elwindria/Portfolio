@@ -17,15 +17,18 @@ html{
 }
 
 .fullVh{
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    /* position: absolute; */
     top: 0px;
     left: 0px;
+}
+
+#home{
+    display: flex;
 }
 
 h1{
@@ -55,23 +58,38 @@ h1{
     justify-content: center;
     align-items: center;
     gap: 1.5625vw;
+    height: 50px;
+    overflow: hidden;
 }
 
 li{
     list-style: none;
 }
 
+.trait_nav_bar{
+    height: 0px;
+    width: 1px;
+    background-color: #D4D4D4;
+    transition: all 1.5s ease-in-out;
+}
+
+.li_btn_nav_bar{
+    transition: all .8s ease-in-out;
+    transform: translateY(-130%);
+    opacity: 0;
+}
+
+.li_btn_nav_bar_slow{
+    transition: all 1.1s ease-in-out;
+    transform: translateY(-130%);
+    opacity: 0;
+}
+
 .btn_nav_bar{
-    font-family: 'Jost';
-    font-style: normal;
+    font-family: 'Jost', sans-serif;
     font-weight: 300;
     font-size: 1.25rem;
     color: #FBFBFB;
     text-decoration: none;
 }
 
-.trait_nav_bar{
-    height: 50px;
-    width: 1px;
-    background-color: #D4D4D4;
-}
