@@ -65,3 +65,17 @@ init();
 
 // THREE.JS - Fond etoilé en 3D - Animation - Fin !
 //====================================================
+// Toutes les apparitions START ! 
+
+// Une fois la page HTML chargé
+window.addEventListener('load', function(){
+  spawnNavBar();
+})
+
+function spawnNavBar(){
+  
+  const allBtnNavBar = document.querySelectorAll('.btn_nav_bar');
+  const allTraitNavBar = document.querySelectorAll('.trait_nav_bar');
+
+
+}

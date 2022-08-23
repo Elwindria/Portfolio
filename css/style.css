@@ -11,3 +11,67 @@ canvas{
     left: 0;
     z-index: -1;
 }
+
+html{
+    scroll-behavior:smooth;
+}
+
+.fullVh{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    /* position: absolute; */
+    top: 0px;
+    left: 0px;
+}
+
+h1{
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 6.25rem;
+    line-height: 144px;
+    text-align: center;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: rgba(251, 251, 251, 0.7);
+}
+
+/* ======================*/
+/* NavBar START */
+
+#navBar{
+    position: fixed;
+    top: 2.6042vw;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+#navBar > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5625vw;
+}
+
+li{
+    list-style: none;
+}
+
+.btn_nav_bar{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.25rem;
+    color: #FBFBFB;
+    text-decoration: none;
+}
+
+.trait_nav_bar{
+    height: 50px;
+    width: 1px;
+    background-color: #D4D4D4;
+}
