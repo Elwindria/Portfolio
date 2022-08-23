@@ -65,23 +65,52 @@ init();
 
 // THREE.JS - Fond etoilé en 3D - Animation - Fin !
 //====================================================
+// Naviguation avec la barre de Nav - Reset - synchronisation - START
+
+const allSection = ['home', 'presentation', 'achievement', 'cv', 'contact'];
+const allBtnNavBar = document.querySelectorAll('.btn_nav_bar');
+let activePage = 'home';
+
+allBtnNavBar.forEach((btn, index) => {
+  btn.addEventListener('click', function(){
+    // reset();
+
+    // une fois reset fini, on active la nouvelle page
+    if(true){
+      if (allSection[index] == 'home'){
+        home();
+      } else if (allSection[index] == 'presentation'){
+        presentation();
+      }
+    }
+  })
+});
+
+
+// Naviguation avec la barre de Nav - Reset - synchronisation - END
+//=======================================================
 // Toutes les apparitions START ! 
 
-// Une fois la page HTML chargé
+// Une fois la page HTML chargé, on active la navBar + Home
 window.addEventListener('load', function(){
   spawnNavBar();
+  home()
 })
 
+
+// Apparition de la NavBar
 function spawnNavBar(){
 
   const allTraitNavBar = document.querySelectorAll('.trait_nav_bar');
   const allLiBtnNavBar = document.querySelectorAll('.li_btn_nav_bar');
   const allLiBtnNavBarSlow = document.querySelectorAll('.li_btn_nav_bar_slow');
 
+  // les multiples traits
   allTraitNavBar.forEach(trait => {
     trait.style.height = "50px"; 
   });
 
+  //les boutons (a)
   setTimeout(() => {
     allLiBtnNavBar.forEach(btn => {
       btn.style.transform = "translateY(0px)";
@@ -91,10 +120,11 @@ function spawnNavBar(){
       btn.style.transform = "translateY(0px)";
       btn.style.opacity = "1";
     })
-    home()
-  }, 2000);
+  }, 1550);
 }
 
+
+// Apparition de HOME
 function home(){
   const home = document.querySelector("#home");
   const traitHome = document.querySelector('#trait_home');
@@ -103,10 +133,12 @@ function home(){
 
   home.style.display = "flex";
 
+  //barre du milieu
   setTimeout(() => {
     traitHome.style.width = "1500px";
-  }, 1500);
+  }, 200);
 
+  //les deux titres
   setTimeout(() => {
     titleHome.forEach(title => {
       title.style.transform = 'translateY(0px)';
@@ -114,6 +146,11 @@ function home(){
     });
     titleHome2.style.transform = 'translateY(0px)';
     titleHome2.style.opacity = "1";
-  }, 3000);
+  }, 1000);
+}
 
+// apparition de présentation
+function presentation(){
+  document.querySelector('#home').style.display = "unset";
+  console.log('presnetation')
 }
