@@ -27,19 +27,8 @@ html{
     left: 0px;
 }
 
-#home{
-    display: flex;
-}
-
-h1{
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 6.25rem;
-    line-height: 144px;
-    text-align: center;
-    letter-spacing: 0.075em;
-    text-transform: uppercase;
-    color: rgba(251, 251, 251, 0.7);
+.overflow{
+    overflow: hidden;
 }
 
 /* ======================*/
@@ -93,3 +82,44 @@ li{
     text-decoration: none;
 }
 
+/* NavBar End */
+/* ========================
+/* Home Start */
+
+.title_home{
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 6.25rem;
+    text-align: center;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: rgba(251, 251, 251, 0.7);
+    margin: 0;
+    transition: all .8s ease-in-out;
+    transform: translateY(130%);
+    opacity: 0;
+}
+
+#trait_home{
+    width: 0px;
+    height: 3px;
+    background-color: #FBFBFB;
+    transition: all 1.5s ease-in-out;
+}
+
+#title_home_2{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 3.125rem;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: rgba(251, 251, 251, 0.7);
+    transition: all .8s ease-in-out;
+    transform: translateY(-130%);
+    opacity: 0;
+}
+
+/* Home End */
+/* =======================

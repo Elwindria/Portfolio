@@ -97,6 +97,23 @@ function spawnNavBar(){
 
 function home(){
   const home = document.querySelector("#home");
+  const traitHome = document.querySelector('#trait_home');
+  const titleHome = document.querySelectorAll('.title_home');
+  const titleHome2 = document.querySelector('#title_home_2');
 
-  
+  home.style.display = "flex";
+
+  setTimeout(() => {
+    traitHome.style.width = "1500px";
+  }, 1500);
+
+  setTimeout(() => {
+    titleHome.forEach(title => {
+      title.style.transform = 'translateY(0px)';
+      title.style.opacity = "1";
+    });
+    titleHome2.style.transform = 'translateY(0px)';
+    titleHome2.style.opacity = "1";
+  }, 3000);
+
 }
