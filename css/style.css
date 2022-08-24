@@ -29,6 +29,13 @@ html{
 
 .overflow{
     overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.trait{
+    background-color: #FBFBFB;
+    transition: all 1.5s ease-in-out;
 }
 
 /* ======================*/
@@ -124,3 +131,12 @@ li{
 
 /* Home End */
 /* =======================
+/* Presentation START */
+
+#trait_presentation_top_left{
+    position: absolute;
+    width: 50px;
+    height: 10px;
+}
+
+/* Presentation END */

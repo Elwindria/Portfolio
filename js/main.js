@@ -78,52 +78,60 @@ const traitHome = document.querySelector('#trait_home');
 const titleHome = document.querySelectorAll('.title_home');
 const titleHome2 = document.querySelector('#title_home_2');
 
+//Const pour presentation 
+const presentationPage = document.querySelector("#presentation");
+
 // All Const Stop 
 //=======================================================
 // Naviguation avec la barre de Nav - Reset - synchronisation - START
 
+//quand on click sur un des btn de la barre de nav, on reset pour switch
 allBtnNavBar.forEach((btn, index) => {
   btn.addEventListener('click', function(){
 
+    let indexNewPage = index;
     // On vérifie déjà si la demande est pour la page active (inutile donc de reset elle est déjà là)
     if (allFullVh[index].dataset.pageActive !== 'active'){
 
       // On reset alors la page active, donc on lance l'annimation de sortie
-      reset();
-
-      //Puis on active la nouvelle page
-      if (allSection[index] == 'home'){
-        home();
-      } else if (allSection[index] == 'presentation'){
-        presentation();
-      } else if (allSection[index] == 'achievement'){
-        achievement();
-      } else if (allSection[index] == 'cv'){
-        cv()
-      } else if (allSection[index] == 'contact'){
-        contact()
-      }
+      reset(indexNewPage);
     }
   })
 });
 
-function reset(){
-  console.log("function reset");
+// lancement de l'apparition de la nouvelle bonne page
+function newPageActive(indexNewPage){
+
+  if (allSection[indexNewPage] == 'home'){
+    home();
+  } else if (allSection[indexNewPage] == 'presentation'){
+    presentation();
+  } else if (allSection[indexNewPage] == 'achievement'){
+    achievement();
+  } else if (allSection[indexNewPage] == 'cv'){
+    cv()
+  } else if (allSection[indexNewPage] == 'contact'){
+    contact()
+  }
+}
+
+function reset(indexNewPage){
+
   // Reset de la page active  
   allFullVh.forEach((fullVh, index) => {
 
     //Si c'est la page active, on lance son reset
     if (fullVh.dataset.pageActive === 'active'){
       if (allSection[index] == 'home'){
-        resetHome();
+        resetHome(indexNewPage);
       } else if (allSection[index] == 'presentation'){
-        resetPresentation();
+        resetPresentation(indexNewPage);
       } else if (allSection[index] == 'achievement'){
-        resetAchievement();
+        resetAchievement(indexNewPage);
       } else if (allSection[index] == 'cv'){
-        resetCv()
+        resetCv(indexNewPage)
       } else if (allSection[index] == 'contact'){
-        resetContact()
+        resetContact(indexNewPage)
       }
 
     //le reset est fait, on dit que la page n'est plus active
@@ -198,10 +206,11 @@ function home(){
 
 // apparition de PRESENTATION
 function presentation(){
-  let presentation = document.querySelector("#presentation");
 
-  // On la marque comme page active
-  presentation.dataset.pageActive = "active";
+    // On rend actif la page
+    presentationPage.style.display = "flex";
+    // On la marque comme page active
+    presentationPage.dataset.pageActive = "active";
 }
 
 // Toutes les apparitions END !
@@ -209,7 +218,7 @@ function presentation(){
 // Reset de chaque Page Active - Display none - START
 
 //Reset de HOME
-function resetHome(){
+function resetHome(indexNewPage){
 
   //les deux titres
   titleHome.forEach(title => {
@@ -222,9 +231,18 @@ function resetHome(){
   //barre du milieu
   setTimeout(() => {
     traitHome.style.width = "0px";
-  }, 800);
+  }, 400);
 
   setTimeout(() => {
+    //Une fois l'animation de sortie fini, on display none + lancement de la nouvelle page
     homePage.style.display = "none";
-  }, 2000);
+    newPageActive(indexNewPage);
+  }, 1800);
+}
+
+// reset de presentation
+function resetPresentation(indexNewPage){
+  presentationPage.style.display = "none";
+
+  newPageActive(indexNewPage);
 }
