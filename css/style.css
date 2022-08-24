@@ -25,17 +25,28 @@ html{
     width: 100vw;
     top: 0px;
     left: 0px;
+    box-sizing: border-box;
+    padding: 11vw 7.5vw;
 }
 
 .overflow{
     overflow: hidden;
-    box-sizing: border-box;
     padding: 10px;
 }
 
 .trait{
     background-color: #FBFBFB;
     transition: all 1.5s ease-in-out;
+}
+
+h3{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 6.25rem;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: rgba(251, 251, 251, 0.6);
 }
 
 /* ======================*/
@@ -47,6 +58,7 @@ html{
     left: 0;
     right: 0;
     z-index: 100;
+    transition: all 1.5s ease-in-out;
 }
 
 #navBar > ul {
@@ -134,11 +146,18 @@ li{
 /* Presentation START */
 
 #presentation{
-    box-sizing: border-box;
-    padding: 16vw 7.5vw 3vw 7.5vw ;
-    flex-direction:row;
+    overflow: hidden;
+    justify-content: unset;
+}
+
+#div_presentation{
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: unset;
+}
+
+#page_title > h3{
+    margin: 0 0 3vw 0;
 }
 
 #presentation_left{
@@ -160,7 +179,7 @@ li{
     left: 10px;
 }
 
-#p_presentation{
+.p_presentation{
     font-family: 'Jost';
     font-style: normal;
     font-weight: 300;

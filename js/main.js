@@ -70,7 +70,10 @@ init();
 //All Const - Pour chaque page
 const allSection = ['home', 'presentation', 'achievement', 'cv', 'contact'];
 const allFullVh = document.querySelectorAll(".fullVh");
+
+//Const NavBar
 const allBtnNavBar = document.querySelectorAll('.btn_nav_bar');
+const navBar = document.querySelector('#navBar');
 
 //Const pour Home
 const homePage = document.querySelector("#home");
@@ -80,6 +83,11 @@ const titleHome2 = document.querySelector('#title_home_2');
 
 //Const pour presentation 
 const presentationPage = document.querySelector("#presentation");
+const allTraitPresentationTop = document.querySelectorAll('.trait_presentation_top');
+const traitPresentationBotLeft = document.querySelector('#trait_presentation_bot_left');
+const traitPresentationBotRight = document.querySelector('#trait_presentation_bot_right');
+const AllPPresentation = document.querySelectorAll('.p_presentation');
+const imagePresentation = document.querySelector('#img_presentation');
 
 // All Const Stop 
 //=======================================================
@@ -93,6 +101,10 @@ allBtnNavBar.forEach((btn, index) => {
     // On vérifie déjà si la demande est pour la page active (inutile donc de reset elle est déjà là)
     if (allFullVh[index].dataset.pageActive !== 'active'){
 
+      //si la page demandé est home, on reset aussi la navBar
+      if(allSection[index] == "home"){
+        resetNavBar();
+      }
       // On reset alors la page active, donc on lance l'annimation de sortie
       reset(indexNewPage);
     }
@@ -176,7 +188,10 @@ function spawnNavBar(){
   }, 1550);
 }
 
-
+//Slide de la navBar
+function navBarSlide(){
+  navBar.style.right = '-48vw';
+}
 
 // Apparition de HOME
 function home(){
@@ -207,18 +222,26 @@ function home(){
 // apparition de PRESENTATION
 function presentation(){
 
-    // On rend actif la page
-    presentationPage.style.display = "flex";
-    // On la marque comme page active
-    presentationPage.dataset.pageActive = "active";
+  // On rend actif la page
+  presentationPage.style.display = "flex";
+  // On la marque comme page active
+  presentationPage.dataset.pageActive = "active";
 }
 
 // Toutes les apparitions END !
 //=============================================
 // Reset de chaque Page Active - Display none - START
 
+//Reset de NavBar
+function resetNavBar(){
+  navBar.style.right = '0';
+}
+
 //Reset de HOME
 function resetHome(indexNewPage){
+
+  //On déplace aussi la navBar car c'est plus home la page Active
+  navBarSlide();
 
   //les deux titres
   titleHome.forEach(title => {
