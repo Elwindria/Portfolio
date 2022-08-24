@@ -65,27 +65,72 @@ init();
 
 // THREE.JS - Fond etoilé en 3D - Animation - Fin !
 //====================================================
-// Naviguation avec la barre de Nav - Reset - synchronisation - START
+// All Const Start
 
+//All Const - Pour chaque page
 const allSection = ['home', 'presentation', 'achievement', 'cv', 'contact'];
+const allFullVh = document.querySelectorAll(".fullVh");
 const allBtnNavBar = document.querySelectorAll('.btn_nav_bar');
-let activePage = 'home';
+
+//Const pour Home
+const homePage = document.querySelector("#home");
+const traitHome = document.querySelector('#trait_home');
+const titleHome = document.querySelectorAll('.title_home');
+const titleHome2 = document.querySelector('#title_home_2');
+
+// All Const Stop 
+//=======================================================
+// Naviguation avec la barre de Nav - Reset - synchronisation - START
 
 allBtnNavBar.forEach((btn, index) => {
   btn.addEventListener('click', function(){
-    // reset();
 
-    // une fois reset fini, on active la nouvelle page
-    if(true){
+    // On vérifie déjà si la demande est pour la page active (inutile donc de reset elle est déjà là)
+    if (allFullVh[index].dataset.pageActive !== 'active'){
+
+      // On reset alors la page active, donc on lance l'annimation de sortie
+      reset();
+
+      //Puis on active la nouvelle page
       if (allSection[index] == 'home'){
         home();
       } else if (allSection[index] == 'presentation'){
         presentation();
+      } else if (allSection[index] == 'achievement'){
+        achievement();
+      } else if (allSection[index] == 'cv'){
+        cv()
+      } else if (allSection[index] == 'contact'){
+        contact()
       }
     }
   })
 });
 
+function reset(){
+  console.log("function reset");
+  // Reset de la page active  
+  allFullVh.forEach((fullVh, index) => {
+
+    //Si c'est la page active, on lance son reset
+    if (fullVh.dataset.pageActive === 'active'){
+      if (allSection[index] == 'home'){
+        resetHome();
+      } else if (allSection[index] == 'presentation'){
+        resetPresentation();
+      } else if (allSection[index] == 'achievement'){
+        resetAchievement();
+      } else if (allSection[index] == 'cv'){
+        resetCv()
+      } else if (allSection[index] == 'contact'){
+        resetContact()
+      }
+
+    //le reset est fait, on dit que la page n'est plus active
+    fullVh.dataset.pageActive = "false";
+    }
+  });
+}
 
 // Naviguation avec la barre de Nav - Reset - synchronisation - END
 //=======================================================
@@ -124,14 +169,14 @@ function spawnNavBar(){
 }
 
 
+
 // Apparition de HOME
 function home(){
-  const home = document.querySelector("#home");
-  const traitHome = document.querySelector('#trait_home');
-  const titleHome = document.querySelectorAll('.title_home');
-  const titleHome2 = document.querySelector('#title_home_2');
 
-  home.style.display = "flex";
+  // On rend actif la page home
+  homePage.style.display = "flex";
+  // On la marque comme page active
+  homePage.dataset.pageActive = "active";
 
   //barre du milieu
   setTimeout(() => {
@@ -149,8 +194,37 @@ function home(){
   }, 1000);
 }
 
-// apparition de présentation
+
+
+// apparition de PRESENTATION
 function presentation(){
-  document.querySelector('#home').style.display = "unset";
-  console.log('presnetation')
+  let presentation = document.querySelector("#presentation");
+
+  // On la marque comme page active
+  presentation.dataset.pageActive = "active";
+}
+
+// Toutes les apparitions END !
+//=============================================
+// Reset de chaque Page Active - Display none - START
+
+//Reset de HOME
+function resetHome(){
+
+  //les deux titres
+  titleHome.forEach(title => {
+    title.style.transform = 'translateY(130%)';
+    title.style.opacity = "0";
+  });
+  titleHome2.style.transform = 'translateY(-130%)';
+  titleHome2.style.opacity = "0";
+    
+  //barre du milieu
+  setTimeout(() => {
+    traitHome.style.width = "0px";
+  }, 800);
+
+  setTimeout(() => {
+    homePage.style.display = "none";
+  }, 2000);
 }
