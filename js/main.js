@@ -74,6 +74,9 @@ const allFullVh = document.querySelectorAll(".fullVh");
 //Const NavBar
 const allBtnNavBar = document.querySelectorAll('.btn_nav_bar');
 const navBar = document.querySelector('#navBar');
+const allTraitNavBar = document.querySelectorAll('.trait_nav_bar');
+const allLiBtnNavBar = document.querySelectorAll('.li_btn_nav_bar');
+const allLiBtnNavBarSlow = document.querySelectorAll('.li_btn_nav_bar_slow');
 
 //Const pour Home
 const homePage = document.querySelector("#home");
@@ -165,10 +168,6 @@ window.addEventListener('load', function(){
 
 // Apparition de la NavBar
 function spawnNavBar(){
-
-  const allTraitNavBar = document.querySelectorAll('.trait_nav_bar');
-  const allLiBtnNavBar = document.querySelectorAll('.li_btn_nav_bar');
-  const allLiBtnNavBarSlow = document.querySelectorAll('.li_btn_nav_bar_slow');
 
   // les multiples traits
   allTraitNavBar.forEach(trait => {
