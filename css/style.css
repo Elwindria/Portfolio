@@ -26,7 +26,6 @@ html{
     top: 0px;
     left: 0px;
     box-sizing: border-box;
-    padding: 11vw 7.5vw;
 }
 
 .overflow{
@@ -146,22 +145,32 @@ li{
 /* Presentation START */
 
 #presentation{
+    padding: 11vw 7.5vw 0vw 7.5vw;
     overflow: hidden;
     justify-content: unset;
+    box-sizing: border-box;
 }
 
 #div_presentation{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 402px;
+    padding: 0;
 }
 
-#page_title > h3{
+#page_title_presentation {
     margin: 0 0 3vw 0;
+    opacity: 0;
+    transition: all 1.5s ease-in-out;
 }
 
 #presentation_left{
     width: 60%;
+}
+
+#presentation_right{
+    padding: 0;
 }
 
 #trait_presentation_top_left{
@@ -169,14 +178,16 @@ li{
 }
 
 #trait_presentation_bot_left{
-    width: 100%;
+    width: 0px;
     height: 2px;
+    transition: all 1.5s ease-in-out;
 }
 
 #div_p_presentation{
     position:relative;
-    bottom: 400px;
+    bottom: 0px;
     left: 10px;
+    transition: all 1.5s ease-in-out;
 }
 
 .p_presentation{
@@ -195,18 +206,21 @@ li{
 }
 
 #trait_presentation_bot_right{
-    width: 100%;
+    width: 0px;
+    transition: all 1.5s ease-in-out;
     height: 2px;
 }
 
 .trait_presentation_top{
     height: 400px;
+    transform: translateY(100%);
+    transition: all 1.5s ease-in-out;
 }
 
 #img_presentation{
     position: relative;
-    bottom: 370px;
-    right: 10px;
+    bottom: 0px;
+    transition: all 1.5s ease-in-out;
 }
 
 /* Presentation END */

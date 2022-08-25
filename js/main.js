@@ -65,11 +65,16 @@ init();
 
 // THREE.JS - Fond etoilé en 3D - Animation - Fin !
 //====================================================
+//====================================================
+//====================================================
+//====================================================
 // All Const Start
 
 //All Const - Pour chaque page
 const allSection = ['home', 'presentation', 'achievement', 'cv', 'contact'];
 const allFullVh = document.querySelectorAll(".fullVh");
+let blockSpam = "none";
+let transitionQuick = "style.transition = all 1.5s ease-in-out";
 
 //Const NavBar
 const allBtnNavBar = document.querySelectorAll('.btn_nav_bar');
@@ -89,8 +94,9 @@ const presentationPage = document.querySelector("#presentation");
 const allTraitPresentationTop = document.querySelectorAll('.trait_presentation_top');
 const traitPresentationBotLeft = document.querySelector('#trait_presentation_bot_left');
 const traitPresentationBotRight = document.querySelector('#trait_presentation_bot_right');
-const AllPPresentation = document.querySelectorAll('.p_presentation');
+const pDivPresentation = document.querySelector('#div_p_presentation');
 const imagePresentation = document.querySelector('#img_presentation');
+const pageTitlePresentation = document.querySelector('#page_title_presentation');
 
 // All Const Stop 
 //=======================================================
@@ -101,15 +107,26 @@ allBtnNavBar.forEach((btn, index) => {
   btn.addEventListener('click', function(){
 
     let indexNewPage = index;
-    // On vérifie déjà si la demande est pour la page active (inutile donc de reset elle est déjà là)
-    if (allFullVh[index].dataset.pageActive !== 'active'){
 
-      //si la page demandé est home, on reset aussi la navBar
-      if(allSection[index] == "home"){
-        resetNavBar();
+    // Ajout d'une protection anti-spam
+    if(blockSpam !== "actif"){
+
+      // On vérifie déjà si la demande est pour la page active (inutile donc de reset elle est déjà là)
+      if (allFullVh[index].dataset.pageActive !== 'active'){
+
+        blockSpam = "actif";
+
+        //si la page demandé est home, on reset aussi la navBar
+        if(allSection[index] == "home"){
+          resetNavBar();
+        }
+        // On reset alors la page active, donc on lance l'annimation de sortie
+        reset(indexNewPage);
+
+        setTimeout(() => {
+          blockSpam = "none";
+        }, 2000);
       }
-      // On reset alors la page active, donc on lance l'annimation de sortie
-      reset(indexNewPage);
     }
   })
 });
@@ -184,7 +201,7 @@ function spawnNavBar(){
       btn.style.transform = "translateY(0px)";
       btn.style.opacity = "1";
     })
-  }, 1550);
+  }, 100);
 }
 
 //Slide de la navBar
@@ -225,6 +242,22 @@ function spawnPresentation(){
   presentationPage.style.display = "flex";
   // On la marque comme page active
   presentationPage.dataset.pageActive = "active";
+
+  setTimeout(() => {
+    pageTitlePresentation.style.opacity = "1";
+
+    //trait
+    allTraitPresentationTop.forEach(trait => {
+      trait.style.transform = "translateY(0%)"    
+    });
+    traitPresentationBotRight.style.width = "100%";
+    traitPresentationBotLeft.style.width = "100%"
+  }, 100);
+
+  setTimeout(() => {
+    pDivPresentation.style.bottom = "400px";
+    imagePresentation.style.bottom = "400px";
+  }, 500);
 }
 
 // Toutes les apparitions END !
@@ -238,7 +271,7 @@ function resetNavBar(){
 
   //les boutons (a)
   allLiBtnNavBar.forEach(btn => {
-    btn.style.transition = "all .8s ease-in-out";
+    btn.style.transition = "all .7s ease-in-out";
     btn.style.transform = "translateY(-130%)";
     btn.style.opacity = "0";
   });
@@ -250,17 +283,18 @@ function resetNavBar(){
 
   // les multiples traits
   allTraitNavBar.forEach(trait => {
+    trait.style.transition = "all .7s ease-in-out";
     trait.style.height = "0px"; 
   });
 
   setTimeout(() => {
     navBar.style.transition = "all .1s ease-in-out";
-    navBar.style.right = '0';
-  }, 1500);
+    navBar.style.right = '0px';
+  }, 900);
 
   setTimeout(() => {
     //on reset la vitesse des transition avant de relancer l'anim du spawn
-    navBar.style.transition = "all 1.5s ease-in-out";
+    navBar.style.transitionQuick;
 
     allLiBtnNavBar.forEach(btn => {
       btn.style.transition = "all 1.5s ease-in-out";
@@ -271,7 +305,7 @@ function resetNavBar(){
 
     // Spawn de la NavBar
     spawnNavBar();
-  }, 1600);
+  }, 1000);
 }
 
 //Reset de HOME
@@ -302,7 +336,27 @@ function resetHome(indexNewPage){
 
 // reset de presentation
 function resetPresentation(indexNewPage){
-  presentationPage.style.display = "none";
 
-  newPageActive(indexNewPage);
+  setTimeout(() => {
+
+    pageTitlePresentation.style.opacity = "0";
+
+    setTimeout(() => {
+      pDivPresentation.style.bottom = "0px";
+      imagePresentation.style.bottom = "0px";
+    }, 100);
+
+    //trait
+    allTraitPresentationTop.forEach(trait => {
+      trait.style.transform = "translateY(100%)"; 
+    });
+    traitPresentationBotRight.style.width = "0px";
+    traitPresentationBotLeft.style.width = "0px";
+  }, 400);
+
+  setTimeout(() => {
+    presentationPage.style.display = "none";
+    newPageActive(indexNewPage);
+  }, 1800);
+
 }
