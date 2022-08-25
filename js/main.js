@@ -118,15 +118,15 @@ allBtnNavBar.forEach((btn, index) => {
 function newPageActive(indexNewPage){
 
   if (allSection[indexNewPage] == 'home'){
-    home();
+    spawnHome();
   } else if (allSection[indexNewPage] == 'presentation'){
-    presentation();
+    spawnPresentation();
   } else if (allSection[indexNewPage] == 'achievement'){
-    achievement();
+    spawnAchievement();
   } else if (allSection[indexNewPage] == 'cv'){
-    cv()
+    spawnCv()
   } else if (allSection[indexNewPage] == 'contact'){
-    contact()
+    spawnContact()
   }
 }
 
@@ -162,7 +162,7 @@ function reset(indexNewPage){
 // Une fois la page HTML chargé, on active la navBar + Home
 window.addEventListener('load', function(){
   spawnNavBar();
-  home()
+  spawnHome()
 })
 
 
@@ -193,7 +193,7 @@ function navBarSlide(){
 }
 
 // Apparition de HOME
-function home(){
+function spawnHome(){
 
   // On rend actif la page home
   homePage.style.display = "flex";
@@ -219,7 +219,7 @@ function home(){
 
 
 // apparition de PRESENTATION
-function presentation(){
+function spawnPresentation(){
 
   // On rend actif la page
   presentationPage.style.display = "flex";
@@ -233,7 +233,45 @@ function presentation(){
 
 //Reset de NavBar
 function resetNavBar(){
-  navBar.style.right = '0';
+
+  //On change la vitesse de reset en plus rapide que la vitesse pour spawn
+
+  //les boutons (a)
+  allLiBtnNavBar.forEach(btn => {
+    btn.style.transition = "all .8s ease-in-out";
+    btn.style.transform = "translateY(-130%)";
+    btn.style.opacity = "0";
+  });
+  allLiBtnNavBarSlow.forEach(btn => {
+    btn.style.transition = "all .5s ease-in-out";
+    btn.style.transform = "translateY(-130%)";
+    btn.style.opacity = "0";
+  })
+
+  // les multiples traits
+  allTraitNavBar.forEach(trait => {
+    trait.style.height = "0px"; 
+  });
+
+  setTimeout(() => {
+    navBar.style.transition = "all .1s ease-in-out";
+    navBar.style.right = '0';
+  }, 1500);
+
+  setTimeout(() => {
+    //on reset la vitesse des transition avant de relancer l'anim du spawn
+    navBar.style.transition = "all 1.5s ease-in-out";
+
+    allLiBtnNavBar.forEach(btn => {
+      btn.style.transition = "all 1.5s ease-in-out";
+    })
+    allLiBtnNavBarSlow.forEach(btn => {
+      btn.style.transition = "all 1.1s ease-in-out";
+    })
+
+    // Spawn de la NavBar
+    spawnNavBar();
+  }, 1600);
 }
 
 //Reset de HOME
