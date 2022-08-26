@@ -48,6 +48,12 @@ h3{
     color: rgba(251, 251, 251, 0.6);
 }
 
+.page_title {
+    margin: 0 0 3vw 0;
+    opacity: 0;
+    transition: all 1.5s ease-in-out;
+}
+
 /* ======================*/
 /* NavBar START */
 
@@ -96,9 +102,12 @@ li{
     font-family: 'Jost', sans-serif;
     font-weight: 300;
     font-size: 1.25rem;
-    color: #FBFBFB;
+    color: #fbfbfb;
     text-decoration: none;
     cursor: pointer;
+    padding-bottom: 4px;
+    background: linear-gradient(currentColor 0 0) bottom /var(--d, 0) 1px no-repeat;
+    transition:0.5s;
 }
 
 /* NavBar End */
@@ -157,12 +166,6 @@ li{
     justify-content: space-between;
     height: 402px;
     padding: 0;
-}
-
-#page_title_presentation {
-    margin: 0 0 3vw 0;
-    opacity: 0;
-    transition: all 1.5s ease-in-out;
 }
 
 #presentation_left{
@@ -224,3 +227,12 @@ li{
 }
 
 /* Presentation END */
+/*===================================*/
+/*===================================*/
+/* All Hover */
+
+/* Hover NavBar */
+
+.btn_nav_bar:hover{
+    --d: 100%;
+}
