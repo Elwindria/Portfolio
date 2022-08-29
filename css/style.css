@@ -58,7 +58,7 @@ h3{
 /* NavBar START */
 
 #navBar{
-    position: fixed;
+    position: absolute;
     top: 2.6042vw;
     left: 0;
     right: 0;
@@ -227,6 +227,90 @@ li{
 }
 
 /* Presentation END */
+/* Achievement Start */
+
+#achievement{
+    height: unset;
+    padding: 11vw 10vw 3vw 10vw;
+    width: 100%;
+}
+
+#all_achievement{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+}
+
+.img_achievement{
+    border-radius: 2px;
+}
+
+.div_achievement{
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.trait_achievement{
+    width: 3px;
+    background: linear-gradient(currentColor 0 0) bottom /var(--d, 0) 1px no-repeat;
+    transition: all 1.5s ease-in-out;
+}
+
+.text_achievement{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.achievement_left, .achievement_right{
+    width: 31.25vw;
+    height: 15.625vw;
+}
+
+.achievement_left{
+    transition: all 1.5s ease-in-out;
+    transform: translateX(110%);
+}
+
+.achievement_right{
+    transition: all 1.5s ease-in-out;
+    transform: translateX(-110%);
+}
+
+h4{
+    color: #FBFBFB;
+    font-size: 2rem;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    color: rgba(251, 251, 251, 0.876);
+    margin: 15px 0;
+}
+
+.p_achievement{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 29px;
+    color: rgba(251, 251, 251, 0.7);
+    text-align: center;
+}
+
+.div_logo_achievement{
+    display: flex;
+    gap: 25px;
+}
+
+.logo_achievement{
+    width: 50px;
+    height: 50px;
+}
+
+/* Achievement End */
 /*===================================*/
 /*===================================*/
 /* All Hover */
@@ -236,3 +320,4 @@ li{
 .btn_nav_bar:hover{
     --d: 100%;
 }
+

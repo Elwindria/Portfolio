@@ -99,6 +99,9 @@ const pageTitlePresentation = document.querySelector('#page_title_presentation')
 
 //Const pour achievement 
 const achievementPage = document.querySelector("#achievement");
+const allTraitAchievement = document.querySelectorAll(".trait_achievement");
+const allAchievementRight = document.querySelectorAll(".achievement_right");
+const allAchievementLeft = document.querySelectorAll(".achievement_left");
 
 // All Const Stop 
 //=======================================================
@@ -269,7 +272,20 @@ function spawnAchievement(){
   // On la marque comme page active
   achievementPage.dataset.pageActive = "active";
 
+  setTimeout(() => {
+    allTraitAchievement.forEach(trait => {
+      trait.style.height = "15.625vw";
+    })
+  }, 100);
 
+  setTimeout(() => {
+    allAchievementLeft.forEach(left =>{
+      left.style.transform = "translate(0%)";
+    })
+    allAchievementRight.forEach(right =>{
+      right.style.transform = "translate(0%)";
+    })
+  }, 500);
 }
 
 // Toutes les apparitions END !
@@ -344,7 +360,7 @@ function resetHome(indexNewPage){
   setTimeout(() => {
     
     //reset des temps d'animation
-    traitHome.style.transition = "all 1.5.s ease-in-out";
+    traitHome.style.transition = "all 1.5s ease-in-out";
     titleHome2.style.transition = "all 1.5s ease-in-out";
     titleHome.forEach(title => {
       title.style.transition = "all 1.5s ease-in-out";
