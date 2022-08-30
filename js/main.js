@@ -103,6 +103,11 @@ const pageTitleAchievement = document.querySelector('#page_title_achievement');
 const allAchievementRight = document.querySelectorAll(".achievement_right");
 const allAchievementLeft = document.querySelectorAll(".achievement_left");
 
+const linkBaume = document.querySelectorAll('.link_baume');
+const linkBaumeAdmin = document.querySelectorAll('.link_baume_admin');
+const linkShifumi = document.querySelectorAll('.link_shifumi');
+const linkBash = document.querySelectorAll('.link_bash');
+
 // All Const Stop 
 //=======================================================
 // Naviguation avec la barre de Nav - Reset - synchronisation - START
@@ -426,3 +431,40 @@ function resetAchievement(indexNewPage){
       achievementPage.style.display = "none";
       newPageActive(indexNewPage);
 }
+
+/* Reset End */
+/* =================================================== */
+/* ===================================================== */
+/* Hover + Redirection start */ 
+
+/* Achievement */
+
+// Link vers Baume.fr
+linkBaume.forEach(link => {
+  link.addEventListener('click', ()=>{
+    document.location.href='https://pierrel.promo-159.codeur.online/BaumeLesMessieurs/';
+  })  
+});
+
+// linkk vers Baume.fr/admin
+linkBaumeAdmin.forEach(link => {
+  link.addEventListener('click', ()=>{
+    document.location.href='https://pierrel.promo-159.codeur.online/BaumeLesMessieurs/admin.html';
+  })  
+});
+
+// Link vers le Github Shifumi
+linkShifumi.forEach(link => {
+  link.addEventListener('click', ()=>{
+    document.location.href='https://github.com/Elwindria/rock-paper-scissors';
+  })  
+});
+
+// Link vers le Github Bash
+linkBash.forEach(link => {
+  link.addEventListener('click', ()=>{
+    document.location.href='https://github.com/Elwindria/bash';
+  })  
+});
+
+/* Hover + Redirection end */
