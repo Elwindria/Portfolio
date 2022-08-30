@@ -427,9 +427,39 @@ function resetPresentation(indexNewPage){
 
 //reset Achievement
 function resetAchievement(indexNewPage){
-      //reset fini, on lance la nouvelle page + display none
-      achievementPage.style.display = "none";
-      newPageActive(indexNewPage);
+
+  setTimeout(() => {
+    pageTitleAchievement.style.transition = "all .7s ease-in-out";
+    pageTitleAchievement.style.opacity = "0";
+  }, 50);
+
+  setTimeout(() => {
+    allAchievementLeft.forEach(left =>{
+      left.style.transition = "all .7s ease-in-out";
+      left.style.transform = "translateY(110%)";
+    })
+    allAchievementRight.forEach(right =>{
+      right.style.transition = "all .7s ease-in-out";
+      right.style.transform = "translateY(-120%)";
+    })
+  }, 50);
+
+  setTimeout(() => {
+
+  pageTitleAchievement.style.transition = "all 1.5s ease-in-out";
+
+  allAchievementLeft.forEach(left =>{
+    left.style.transition = "all 1.5s ease-in-out";
+  });
+
+  allAchievementRight.forEach(right =>{
+    right.style.transition = "all 1.5s ease-in-out";
+  })
+
+  //reset fini, on lance la nouvelle page + display none
+  achievementPage.style.display = "none";
+  newPageActive(indexNewPage);
+  }, 1000);
 }
 
 /* Reset End */
@@ -442,28 +472,28 @@ function resetAchievement(indexNewPage){
 // Link vers Baume.fr
 linkBaume.forEach(link => {
   link.addEventListener('click', ()=>{
-    document.location.href='https://pierrel.promo-159.codeur.online/BaumeLesMessieurs/';
+    window.open('https://pierrel.promo-159.codeur.online/BaumeLesMessieurs/', '_blank');
   })  
 });
 
 // linkk vers Baume.fr/admin
 linkBaumeAdmin.forEach(link => {
   link.addEventListener('click', ()=>{
-    document.location.href='https://pierrel.promo-159.codeur.online/BaumeLesMessieurs/admin.html';
+    window.open('https://pierrel.promo-159.codeur.online/BaumeLesMessieurs/admin.html', '_blank');
   })  
 });
 
 // Link vers le Github Shifumi
 linkShifumi.forEach(link => {
   link.addEventListener('click', ()=>{
-    document.location.href='https://github.com/Elwindria/rock-paper-scissors';
+    window.open('https://github.com/Elwindria/rock-paper-scissors', '_blank');
   })  
 });
 
 // Link vers le Github Bash
 linkBash.forEach(link => {
   link.addEventListener('click', ()=>{
-    document.location.href='https://github.com/Elwindria/bash';
+    window.open('https://github.com/Elwindria/bash', '_blank');
   })  
 });
 
