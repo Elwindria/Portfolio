@@ -99,7 +99,7 @@ const pageTitlePresentation = document.querySelector('#page_title_presentation')
 
 //Const pour achievement 
 const achievementPage = document.querySelector("#achievement");
-const allTraitAchievement = document.querySelectorAll(".trait_achievement");
+const pageTitleAchievement = document.querySelector('#page_title_achievement');
 const allAchievementRight = document.querySelectorAll(".achievement_right");
 const allAchievementLeft = document.querySelectorAll(".achievement_left");
 
@@ -273,10 +273,8 @@ function spawnAchievement(){
   achievementPage.dataset.pageActive = "active";
 
   setTimeout(() => {
-    allTraitAchievement.forEach(trait => {
-      trait.style.height = "300px";
-    })
-  }, 100);
+    pageTitleAchievement.style.opacity = "1";
+  }, 50);
 
   setTimeout(() => {
     allAchievementLeft.forEach(left =>{
@@ -285,11 +283,14 @@ function spawnAchievement(){
     allAchievementRight.forEach(right =>{
       right.style.transform = "translateY(0%)";
     })
-  }, 500);
+  }, 700);
 }
 
 // Toutes les apparitions END !
 //=============================================
+// =================================================
+// =====================================================
+// ========================================================
 // Reset de chaque Page Active - Display none - START
 
 //Reset de NavBar

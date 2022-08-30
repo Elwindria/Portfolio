@@ -280,7 +280,7 @@ li{
 
 .achievement_right{
     transition: all 1.5s ease-in-out;
-    transform: translateY(-200%);
+    transform: translateY(-120%);
 }
 
 h4{
@@ -301,6 +301,11 @@ h4{
     line-height: 29px;
     color: rgba(251, 251, 251, 0.7);
     text-align: center;
+}
+
+.link_achievement{
+    color: rgb(251, 251, 251);
+    cursor: pointer;
 }
 
 .div_logo_achievement{
