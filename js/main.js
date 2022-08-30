@@ -274,16 +274,16 @@ function spawnAchievement(){
 
   setTimeout(() => {
     allTraitAchievement.forEach(trait => {
-      trait.style.height = "15.625vw";
+      trait.style.height = "300px";
     })
   }, 100);
 
   setTimeout(() => {
     allAchievementLeft.forEach(left =>{
-      left.style.transform = "translate(0%)";
+      left.style.transform = "translateY(0%)";
     })
     allAchievementRight.forEach(right =>{
-      right.style.transform = "translate(0%)";
+      right.style.transform = "translateY(0%)";
     })
   }, 500);
 }
