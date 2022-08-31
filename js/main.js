@@ -465,7 +465,7 @@ function resetAchievement(indexNewPage){
   })
 
   //reset de la fleche qui bounce
-  arrow.style.display = "fixed";
+  arrow.style.opacity = "1";
 
   //reset fini, on lance la nouvelle page + display none
   achievementPage.style.display = "none";
@@ -512,13 +512,9 @@ linkBash.forEach(link => {
 //===============================
 /* Animation Arrow de Achievement Start */
 
-arrow.addEventListener('mousein', ()=>{
-  arrow.style.display = "none";
-})
-
 window.addEventListener('scroll', ()=>{
   if(achievementPage.dataset.pageActive === 'active')
-    arrow.style.display = "none";
+    arrow.style.opacity = "0";
 })
 
 /* Animation Arrow de Achievement Stop */
