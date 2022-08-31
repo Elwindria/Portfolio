@@ -102,6 +102,7 @@ const achievementPage = document.querySelector("#achievement");
 const pageTitleAchievement = document.querySelector('#page_title_achievement');
 const allAchievementRight = document.querySelectorAll(".achievement_right");
 const allAchievementLeft = document.querySelectorAll(".achievement_left");
+const arrow = document.querySelector("#arrow")
 
 const linkBaume = document.querySelectorAll('.link_baume');
 const linkBaumeAdmin = document.querySelectorAll('.link_baume_admin');
@@ -124,6 +125,7 @@ allBtnNavBar.forEach((btn, index) => {
       // On vérifie déjà si la demande est pour la page active (inutile donc de reset elle est déjà là)
       if (allFullVh[index].dataset.pageActive !== 'active'){
 
+        // On initialise le block spam pour toute la durée du reset/chargement
         blockSpam = "actif";
 
         //si la page demandé est home, on reset aussi la navBar
@@ -133,6 +135,7 @@ allBtnNavBar.forEach((btn, index) => {
         // On reset alors la page active, donc on lance l'annimation de sortie
         reset(indexNewPage);
 
+        //On rénialise après 1.2s le blockSpam
         setTimeout(() => {
           blockSpam = "none";
         }, 1200);
@@ -279,6 +282,7 @@ function spawnAchievement(){
 
   setTimeout(() => {
     pageTitleAchievement.style.opacity = "1";
+    arrow.style.opacity = "1";
   }, 50);
 
   setTimeout(() => {
@@ -288,6 +292,7 @@ function spawnAchievement(){
     allAchievementRight.forEach(right =>{
       right.style.transform = "translateY(0%)";
     })
+    arrow.classList.add('bounce');
   }, 700);
 }
 
@@ -431,6 +436,8 @@ function resetAchievement(indexNewPage){
   setTimeout(() => {
     pageTitleAchievement.style.transition = "all .7s ease-in-out";
     pageTitleAchievement.style.opacity = "0";
+    arrow.style.transition = "all .7s ease-in-out";
+    arrow.style.opacity = "0";
   }, 50);
 
   setTimeout(() => {
@@ -447,6 +454,7 @@ function resetAchievement(indexNewPage){
   setTimeout(() => {
 
   pageTitleAchievement.style.transition = "all 1.5s ease-in-out";
+  arrow.style.transition = "all 1.5s ease-in-out";
 
   allAchievementLeft.forEach(left =>{
     left.style.transition = "all 1.5s ease-in-out";
@@ -455,6 +463,9 @@ function resetAchievement(indexNewPage){
   allAchievementRight.forEach(right =>{
     right.style.transition = "all 1.5s ease-in-out";
   })
+
+  //reset de la fleche qui bounce
+  arrow.style.display = "fixed";
 
   //reset fini, on lance la nouvelle page + display none
   achievementPage.style.display = "none";
@@ -498,3 +509,16 @@ linkBash.forEach(link => {
 });
 
 /* Hover + Redirection end */
+//===============================
+/* Animation Arrow de Achievement Start */
+
+arrow.addEventListener('mousein', ()=>{
+  arrow.style.display = "none";
+})
+
+window.addEventListener('scroll', ()=>{
+  if(achievementPage.dataset.pageActive === 'active')
+    arrow.style.display = "none";
+})
+
+/* Animation Arrow de Achievement Stop */
