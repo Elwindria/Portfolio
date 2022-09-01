@@ -71,7 +71,7 @@ init();
 // All Const Start
 
 //All Const - Pour chaque page
-const allSection = ['home', 'presentation', 'achievement', 'cv', 'contact'];
+const allSection = ['home', 'presentation', 'achievement', 'skill', 'contact'];
 const allFullVh = document.querySelectorAll(".fullVh");
 let blockSpam = "none";
 
@@ -108,6 +108,11 @@ const linkBaume = document.querySelectorAll('.link_baume');
 const linkBaumeAdmin = document.querySelectorAll('.link_baume_admin');
 const linkShifumi = document.querySelectorAll('.link_shifumi');
 const linkBash = document.querySelectorAll('.link_bash');
+
+//Const pour Skill
+const skillPage = document.querySelector('#skill');
+const pageTitleSkill = document.querySelector('#page_title_skill');
+
 
 // All Const Stop 
 //=======================================================
@@ -153,8 +158,8 @@ function newPageActive(indexNewPage){
     spawnPresentation();
   } else if (allSection[indexNewPage] == 'achievement'){
     spawnAchievement();
-  } else if (allSection[indexNewPage] == 'cv'){
-    spawnCv()
+  } else if (allSection[indexNewPage] == 'skill'){
+    spawnSkill()
   } else if (allSection[indexNewPage] == 'contact'){
     spawnContact()
   }
@@ -173,8 +178,8 @@ function reset(indexNewPage){
         resetPresentation(indexNewPage);
       } else if (allSection[index] == 'achievement'){
         resetAchievement(indexNewPage);
-      } else if (allSection[index] == 'cv'){
-        resetCv(indexNewPage)
+      } else if (allSection[index] == 'skill'){
+        resetSkill(indexNewPage)
       } else if (allSection[index] == 'contact'){
         resetContact(indexNewPage)
       }
@@ -273,6 +278,7 @@ function spawnPresentation(){
   }, 500);
 }
 
+// Apparition de Achievement
 function spawnAchievement(){
 
   // On rend actif la page
@@ -294,6 +300,19 @@ function spawnAchievement(){
     })
     arrow.classList.add('bounce');
   }, 700);
+}
+
+// Apparition de Skill
+function spawnSkill(){
+
+  // On rend actif la page
+  skillPage.style.display = "flex";
+  // On la marque comme page active
+  skillPage.dataset.pageActive = "active";
+
+  setTimeout(() => {
+    pageTitleSkill.style.opacity = "1";
+  }, 50);
 }
 
 // Toutes les apparitions END !
@@ -469,6 +488,15 @@ function resetAchievement(indexNewPage){
 
   //reset fini, on lance la nouvelle page + display none
   achievementPage.style.display = "none";
+  newPageActive(indexNewPage);
+  }, 1000);
+}
+
+function resetSkill(indexNewPage){
+
+  setTimeout(() => {
+  //reset fini, on lance la nouvelle page + display none
+  skillPage.style.display = "none";
   newPageActive(indexNewPage);
   }, 1000);
 }
