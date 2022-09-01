@@ -138,7 +138,7 @@ allBtnNavBar.forEach((btn, index) => {
         //On rénialise après 1.2s le blockSpam
         setTimeout(() => {
           blockSpam = "none";
-        }, 1200);
+        }, 1500);
       }
     }
   })
