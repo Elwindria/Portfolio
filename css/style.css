@@ -444,7 +444,17 @@ h4{
 }
 
 #Iam{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.8125rem;
+    color: rgba(251, 251, 251, 0.7);
+    margin: 0;
+    display: flex;
+    gap: .5rem;
     transition: all .6s ease-in-out;
+    transform : translateX(-120%);
 }
 
 .span_desc{
