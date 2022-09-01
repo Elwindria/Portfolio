@@ -566,9 +566,70 @@ function resetAchievement(indexNewPage){
   }, 1000);
 }
 
+//reset de Skill
 function resetSkill(indexNewPage){
 
   setTimeout(() => {
+
+    //les bar de skill blanches qui progress
+    let p=1;
+    allFrontSkillBar.forEach(front => { 
+      front.style.transition = "all .7s ease-in-out";
+      front.setAttribute("id", "");
+      p++
+    });
+
+    // Les bar de skill
+    allSkillBar.forEach(bar => {
+      bar.style.transition = "all .7s ease-in-out";
+      bar.style.transform = "translateX(-120%)";
+    });
+
+    //le titre
+    pageTitleSkill.style.transition = "all .7s ease-in-out";
+    pageTitleSkill.style.opacity = "0";
+
+    allPSkill.forEach(skill => {
+      skill.style.transition = "all .7s ease-in-out";
+      skill.style.transform = "translateX(-120%)";
+    });
+
+    Iam.style.transform = "translateX(-120%)";
+
+    allSpanDesc.forEach(span => {
+      span.style.transform = "translateY(-120%)";
+    });
+
+  }, 50);
+
+  setTimeout(() => {
+    // Les traits
+    allTraitDescription.forEach(trait =>{
+      trait.style.transition = "all .7s ease-in-out";
+      trait.style.height = "0%";
+    })
+  }, 350);
+
+  setTimeout(() => {
+
+  //reset de tous les timers
+  allFrontSkillBar.forEach(front => { 
+    front.style.transition = "all 1.5s ease-in-out";
+  });
+  allSkillBar.forEach(bar => {
+    bar.style.transition = "all 1.5s ease-in-out";
+  });
+
+  pageTitleSkill.style.transition = "all 1.5s ease-in-out";
+
+  allPSkill.forEach(skill => {
+    skill.style.transition = "all 1.5s ease-in-out";
+  });
+
+  allTraitDescription.forEach(trait =>{
+    trait.style.transition = "all 1.5s ease-in-out";
+  });
+
   //reset fini, on lance la nouvelle page + display none
   skillPage.style.display = "none";
   newPageActive(indexNewPage);
