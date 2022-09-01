@@ -112,7 +112,23 @@ const linkBash = document.querySelectorAll('.link_bash');
 //Const pour Skill
 const skillPage = document.querySelector('#skill');
 const pageTitleSkill = document.querySelector('#page_title_skill');
+const allTraitDescription = document.querySelectorAll('.trait_description');
+const allPSkill = document.querySelectorAll('.p_skill');
+const allSpanDesc = document.querySelectorAll('.span_desc');
+const allSkillBar = document.querySelectorAll('.skill_bar');
+const allFrontSkillBar = document.querySelectorAll('.front_skill_bar');
+const Iam = document.querySelector('#Iam');
 
+const spanDesc1 = document.querySelector('#span_desc_1');
+const spanDesc2 = document.querySelector('#span_desc_2');
+const spanDesc3 = document.querySelector('#span_desc_3');
+const spanDesc4 = document.querySelector('#span_desc_4');
+const spanDesc5 = document.querySelector('#span_desc_5');
+
+const skillBar1 = document.querySelector('#skill_bar_1');
+const skillBar2 = document.querySelector('#skill_bar_2');
+const skillBar3 = document.querySelector('#skill_bar_3');
+const skillBar4 = document.querySelector('#skill_bar_4');
 
 // All Const Stop 
 //=======================================================
@@ -311,8 +327,66 @@ function spawnSkill(){
   skillPage.dataset.pageActive = "active";
 
   setTimeout(() => {
-    pageTitleSkill.style.opacity = "1";
+    // Les traits
+    allTraitDescription.forEach(trait =>{
+      trait.style.height = "100%";
+    })
   }, 50);
+
+  //Le "je suis"
+  setTimeout(() => {
+    Iam.style.transform = "translateX(0%)";
+  }, 650);
+
+  //Les compétences qui arrivent une à une
+  setTimeout(() => {
+    spanDesc1.style.transform = "translateY(0%)";
+  }, 1500);
+  setTimeout(() => {
+    spanDesc2.style.transform = "translateY(0%)";
+  }, 2100);
+  setTimeout(() => {
+    spanDesc3.style.transform = "translateY(0%)";
+  }, 2600);
+  setTimeout(() => {
+    spanDesc4.style.transform = "translateY(0%)";
+  }, 3300);
+  setTimeout(() => {
+    spanDesc5.style.transform = "translateY(0%)";
+  }, 3900);
+
+  setTimeout(() => {
+    allPSkill.forEach(skill => {
+      skill.style.transform = "translateX(0)";
+    });
+
+    //le titre
+    pageTitleSkill.style.opacity = "1";
+
+  }, 4300);
+
+  // Les bar de skill
+  setTimeout(() => {
+    skillBar1.style.transform = "translateX(0)";
+  }, 5500);
+  setTimeout(() => {
+    skillBar2.style.transform = "translateX(0)";
+  }, 5800);
+  setTimeout(() => {
+    skillBar3.style.transform = "translateX(0)";
+  }, 6100);
+  setTimeout(() => {
+    skillBar4.style.transform = "translateX(0)";
+  }, 6400);
+
+  //les bar de skill blanches qui progress
+  let p=1;
+  setTimeout(() => {
+    allFrontSkillBar.forEach(front => { 
+      front.setAttribute("id", 'front_'+p);
+      p++
+    });
+  }, 6500);
 }
 
 // Toutes les apparitions END !

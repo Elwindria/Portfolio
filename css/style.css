@@ -394,7 +394,8 @@ h4{
 /* Skill Start */
 
 #skill{
-    justify-content: space-between;
+    justify-content: unset;
+    gap: 6.25rem;
 }
 
 #all_skill{
@@ -414,6 +415,18 @@ h4{
 .description{
     display: flex;
     align-items: center;
+    height: 4.375rem;
+}
+
+#description_2{
+    height: 8rem;
+}
+
+.trait_description{
+    width: .0625rem;
+    background-color: #d4d4d4;
+    transition: all .7s ease-in-out;
+    height: 0;
 }
 
 .p_skill{
@@ -426,10 +439,17 @@ h4{
     margin: 0;
     display: flex;
     gap: .5rem;
+    transform: translateX(-120%);
+    transition: all 1.5s ease-in-out;
+}
+
+#Iam{
+    transition: all .6s ease-in-out;
 }
 
 .span_desc{
-    transform: translateY(-30%);
+    transform: translateY(-120%);
+    transition: all .3s ease-in-out;
 }
 
 #all_skill_bar{
@@ -437,6 +457,11 @@ h4{
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+}
+
+.skill_bar{
+    transform: translateX(-120%);
+    transition: all 1.5s ease-in-out;
 }
 
 .text_skill_bar{
@@ -466,7 +491,7 @@ h4{
     background: #F4F4F4;
     border-radius: 25px;
     height: .625rem;
-    transition: all 1.5s;
+    transition: all 1.5s ease-in-out;
     width: 0;
 }
 
