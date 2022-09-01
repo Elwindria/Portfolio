@@ -21,13 +21,14 @@ html{
 .fullVh{
     display: none;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
     top: 0rem;
     left: 0rem;
     box-sizing: border-box;
+    padding: 13.1875rem 7.5rem 5rem 7.5rem;
+    justify-content: space-between;
 }
 
 .overflow{
@@ -51,8 +52,8 @@ h3{
 }
 
 .page_title {
-    margin: 0 0 3.6rem 0;
     opacity: 0;
+    margin: 0;
     transition: all 1.5s ease-in-out;
 }
 
@@ -140,6 +141,10 @@ li{
 /* ========================
 /* Home Start */
 
+#home{
+    justify-content: center;
+}
+
 .title_home{
     font-family: 'Jost', sans-serif;
     font-style: normal;
@@ -180,10 +185,7 @@ li{
 /* Presentation START */
 
 #presentation{
-    padding: 13.1875rem 9rem 0rem 9rem;
     overflow: hidden;
-    justify-content: unset;
-    box-sizing: border-box;
 }
 
 #div_presentation{
@@ -257,8 +259,11 @@ li{
 
 #achievement{
     height: unset;
-    padding: 13.1875rem 7.5rem 5rem 7.5rem;
     width: 100%;
+}
+
+#page_title_achievement{
+    margin-bottom: 6rem;
 }
 
 #all_achievement{
@@ -386,6 +391,102 @@ h4{
 
 /* Achievement End */
 /*===================================*/
+/* Skill Start */
+
+#skill{
+    justify-content: space-between;
+}
+
+#all_skill{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#all_description{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5625rem;
+    width: 40%;
+    padding: .625rem;
+}
+
+.description{
+    display: flex;
+    align-items: center;
+}
+
+.p_skill{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.8125rem;
+    color: rgba(251, 251, 251, 0.7);
+    margin: 0;
+    display: flex;
+    gap: .5rem;
+}
+
+.span_desc{
+    transform: translateY(-30%);
+}
+
+#all_skill_bar{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.text_skill_bar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 .625rem;
+}
+
+.text_skill_bar > p {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 1.25rem;
+    color: #fbfbfb;
+    margin: .625rem 0;
+}
+
+.background_skill_bar{
+    width: 100%;
+    height: .875rem;
+    background: #090909;
+    border-radius: 25px;
+    padding: .125rem;
+    box-sizing: border-box;
+}
+
+.front_skill_bar{
+    background: #F4F4F4;
+    border-radius: 25px;
+    height: .625rem;
+    transition: all 1.5s;
+    width: 0;
+}
+
+#front_1{
+    width: 90%;
+}
+
+#front_2{
+    width: 80%;
+}
+
+#front_3{
+    width: 70%;
+}
+
+#front_4{
+    width: 60%;
+}
+
+/* Skill End
 /*===================================*/
 /* All Hover */
 
