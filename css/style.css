@@ -58,26 +58,16 @@ h3{
 }
 
 /* ======================*/
-/* ScrollBar START */
+/* ScrollBar START - display none */
 
 /* Works on Firefox */
 * {
-scrollbar-width: thin;
-scrollbar-color: #C4C4C4 #242424;
+scrollbar-width: none;
 }
 
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-width: .625rem;
-}
-
-*::-webkit-scrollbar-track {
-background: #242424;
-}
-
-*::-webkit-scrollbar-thumb {
-background-color: #C4C4C4;
-border-radius: 1.5625rem;
+width: 0rem;
 }
 
 /* ScrollBar End */
