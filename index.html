@@ -230,14 +230,14 @@
             <div id="contact_flex">
                 <div id="contact_left">
                     <div id="text_contact" class="overflow">
-                        <p class="p_contact">Vous voulez me contacer ?</p>
+                        <p class="p_contact">Vous voulez me contacter ?</p>
                         <p class="p_contact">Laissez moi directement un message.</p>
                     </div>
-                    <div class="trait_contact"></div>
+                    <div id="trait_contact_left"></div>
                     <div id="social">
-                        <a href="https://github.com/Elwindria"><img src="images/logo/github.png" alt="un chat dans un rond" class="logo_social"></a>
-                        <a href="https://www.linkedin.com/in/pierre-lopez-bab89a234/"><img src="images/logo/linkedin.png" alt="in dans un carré" class="logo_social"></a>
-                        <a href="https://www.youtube.com/channel/UCVxORyjoMfbR9UAqgFAKtYw"><img src="images/logo/youtube.png" alt="un triangle dans un grand rectangle" class="logo_social"></a>
+                        <a href="https://github.com/Elwindria" target="_blank"><img src="images/logo/github.png" alt="un chat dans un rond" class="logo_social"></a>
+                        <a href="https://www.linkedin.com/in/pierre-lopez-bab89a234/" target="_blank"><img src="images/logo/linkedin.png" alt="in dans un carré" class="logo_social"></a>
+                        <a href="https://www.youtube.com/channel/UCVxORyjoMfbR9UAqgFAKtYw" target="_blank"><img src="images/logo/youtube.png" alt="un triangle dans un grand rectangle" class="logo_social"></a>
                     </div>
                 </div>
                 <div id="contact_right">
@@ -245,8 +245,9 @@
                         <div>
                             <div class="form_flex">
                                 <div class="trait_contact"></div>
-                                <label for="name" class="label">Nom :</label>
-                                <input type="text" id="name" name="name" class="input">
+                                <label for="name" class="label">
+                                    <input type="text" id="name" name="name" class="input" placeholder="Nom :">
+                                </label>
                                 <div class="trait_contact"></div>
                             </div>
                             <span class="error"> </span>
@@ -254,8 +255,19 @@
                         <div>
                             <div class="form_flex">
                                 <div class="trait_contact"></div>
-                                <label for="email" class="label">Email :</label>
-                                <input type="email" id="email" name="email" class="input">
+                                <label for="email" class="label">
+                                    <input type="email" id="email" name="email" class="input" placeholder="Email :">
+                                </label>
+                                <div class="trait_contact"></div>
+                            </div>
+                            <span class="error"> </span>
+                        </div>
+                        <div>
+                            <div class="form_flex" id="text_form_div">
+                                <div class="trait_contact"></div>
+                                <label for="text_form" class="label">
+                                    <textarea id="text_form" name="text_form" class="input" placeholder="Votre message..."></textarea>
+                                </label>
                                 <div class="trait_contact"></div>
                             </div>
                             <span class="error"> </span>
@@ -263,18 +275,10 @@
                         <div>
                             <div class="form_flex">
                                 <div class="trait_contact"></div>
-                                <label for="text_form" class="label">Votre message... :</label>
-                                <input type="text" id="text_form" name="text_form" class="input">
-                                <div class="trait_contact"></div>
-                            </div>
-                            <span class="error"> </span>
-                        </div>
-                        <div>
-                            <div class="form_flex">
-                                <div class="trait_contact"></div>
-                                <label for="submit" class="label">Envoyer</label>
-                                <input type="submit" id="submit" name="submit" class="input">
-                                <div class="trait_contact"></div>
+                                <label for="submit" class="label">
+                                    <input type="submit" id="submit" name="submit" class="input link" placeholder="Me contacter">
+                                </label>
+                                <div class="trait_contact"></div> 
                             </div>
                             <span id="confirm"> </span>
                         </div>

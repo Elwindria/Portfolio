@@ -512,6 +512,118 @@ h4{
 }
 
 /* Skill End
+/* Contact Start */
+
+#page_title_contact{
+    opacity: 1;
+}
+
+#contact{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+#contact_flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#contact_left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.875rem;
+}
+
+.p_contact{
+    text-align: center;  
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.75rem;
+    line-height: 1.8125rem;
+    color: rgba(251, 251, 251, 0.7);
+    margin-bottom: 0rem;
+}
+
+#trait_contact_left{
+    height: 1px;
+    background-color: #FBFBFB;
+    width: 100%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+#text_form_div{
+    height: 12.5rem;
+}
+
+.input{
+    text-align: center;  
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.375rem;
+    line-height: 1.8125rem;
+    color: rgba(251, 251, 251, 0.7);
+    height: 100%;
+
+    background-color: unset;
+    border: unset;
+    width: 31.25rem;
+    text-align: left;
+    text-indent: .4375rem;
+}
+
+#submit{
+    justify-content: center;
+    text-indent: unset;
+    width: 12.5rem;
+    color: #fbfbfb;
+}
+
+#social{
+    display: flex;
+    gap: 2.1875rem;
+}
+
+.logo_social{
+    width: 3.75rem;
+    height: 3.75rem;
+}
+
+.form_flex{
+    height: 3.125rem;
+    display: flex;
+    align-items: center;
+    gap: .125rem;
+}
+
+.trait_contact{
+    height: 100%;
+    width: 1px;
+    background-color: #D4D4D4;
+}
+
+label{
+    height: 100%;
+}
+
+#text_form{
+    height: 100%;
+}
+
+/* Contact End */
 /*===================================*/
 /* All Hover */
 
