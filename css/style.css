@@ -514,10 +514,6 @@ h4{
 /* Skill End
 /* Contact Start */
 
-#page_title_contact{
-    opacity: 1;
-}
-
 #contact{
     display: flex;
     justify-content: space-between;
@@ -537,7 +533,6 @@ h4{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.875rem;
 }
 
 .p_contact{
@@ -548,13 +543,15 @@ h4{
     font-size: 1.75rem;
     line-height: 1.8125rem;
     color: rgba(251, 251, 251, 0.7);
-    margin-bottom: 0rem;
+    transform: translateY(500%);
+    transition: all 1.5s ease-in-out;
 }
 
 #trait_contact_left{
     height: 1px;
     background-color: #FBFBFB;
-    width: 100%;
+    width: 0%;
+    transition: all 1.5s ease-in-out;
 }
 
 form{
@@ -580,7 +577,8 @@ form{
 
     background-color: unset;
     border: unset;
-    width: 31.25rem;
+    width: 0rem;
+    transition: all 1.5s ease-in-out;
     text-align: left;
     text-indent: .4375rem;
 }
@@ -589,17 +587,23 @@ form{
     justify-content: center;
     text-indent: unset;
     width: 12.5rem;
+    transform: translateY(200%);
+    transition: all 1.5s ease-in-out;
     color: #fbfbfb;
 }
 
 #social{
     display: flex;
     gap: 2.1875rem;
+    padding: 1.25rem;
+    box-sizing: border-box;
 }
 
 .logo_social{
     width: 3.75rem;
     height: 3.75rem;
+    transform: translateY(-150%);
+    transition: all 1.5s ease-in-out;
 }
 
 .form_flex{
@@ -610,9 +614,10 @@ form{
 }
 
 .trait_contact{
-    height: 100%;
-    width: 1px;
+    height: 0%;
+    width: .0625rem;
     background-color: #D4D4D4;
+    transition: all 1.5s ease-in-out;
 }
 
 label{
