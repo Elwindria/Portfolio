@@ -368,7 +368,7 @@ h4{
     align-items: flex-end;
     gap: .3125rem;
     opacity: 0;
-    transition: all 1.5s ease-in-out;
+    transition: all .7s ease-in-out;
 }
 
 .bounce{

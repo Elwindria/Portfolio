@@ -327,7 +327,7 @@ function spawnAchievement(){
     allAchievementRight.forEach(right =>{
       right.style.transform = "translateY(0%)";
     })
-    arrow.classList.add('bounce');
+    // arrow.classList.add('bounce');
   }, 700);
 }
 
@@ -589,7 +589,6 @@ function resetAchievement(indexNewPage){
   setTimeout(() => {
     pageTitleAchievement.style.transition = "all .7s ease-in-out";
     pageTitleAchievement.style.opacity = "0";
-    arrow.style.transition = "all .7s ease-in-out";
     arrow.style.opacity = "0";
   }, 50);
 
@@ -607,7 +606,6 @@ function resetAchievement(indexNewPage){
   setTimeout(() => {
 
   pageTitleAchievement.style.transition = "all 1.5s ease-in-out";
-  arrow.style.transition = "all 1.5s ease-in-out";
 
   allAchievementLeft.forEach(left =>{
     left.style.transition = "all 1.5s ease-in-out";
@@ -618,7 +616,7 @@ function resetAchievement(indexNewPage){
   })
 
   //reset de la fleche qui bounce
-  arrow.style.opacity = "1";
+  // arrow.classList.remove('bounce');
 
   //reset fini, on lance la nouvelle page + display none
   achievementPage.style.display = "none";
@@ -742,11 +740,33 @@ linkBash.forEach(link => {
 
 /* Hover + Redirection end */
 //===============================
-/* Animation Arrow de Achievement Start */
+/* Animation Arrow de Achievement Start + oberver */
 
-window.addEventListener('scroll', ()=>{
-  if(achievementPage.dataset.pageActive === 'active')
-    arrow.style.opacity = "0";
+const callback = function( entries ) {
+
+  let observedImg = entries[0];
+
+  if(!observedImg.isIntersecting){
+    arrow.classList.remove('bounce');
+    arrow.style.cursor = "pointer";
+    setTimeout(() => {
+      arrow.style.transform = "rotate(180deg)";
+    }, 50);
+  } else {
+    arrow.style.transform = "rotate(0deg)";
+    setTimeout(() => {
+      arrow.classList.add('bounce');
+      arrow.style.cursor = "unset"; 
+    }, 700);
+  }
+}
+
+const observer = new IntersectionObserver(callback);
+observer.observe(pageTitleAchievement);
+
+//remonte en haut de la page au clic sur la fleche
+arrow.addEventListener('click', ()=>{
+  window.scroll(0, 0);
 })
 
 /* Animation Arrow de Achievement Stop */
