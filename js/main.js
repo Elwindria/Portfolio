@@ -152,6 +152,7 @@ allBtnNavBar.forEach((btn, index) => {
   btn.addEventListener('click', function(){
 
     let indexNewPage = index;
+    console.log(blockSpam, allSection[index]);
 
     // Ajout d'une protection anti-spam
     if(blockSpam !== "actif"){
@@ -170,9 +171,17 @@ allBtnNavBar.forEach((btn, index) => {
         reset(indexNewPage);
 
         //On rénialise après 1.2s le blockSpam
-        setTimeout(() => {
-          blockSpam = "none";
-        }, 1500);
+        //(sauf si c'est la page Achievement, là 8s)
+        if(allSection[index] == "skill"){
+          console.log('achievemet');
+          setTimeout(() => {
+            blockSpam = "none";
+          }, 8000);
+        } else {
+          setTimeout(() => {
+            blockSpam = "none";
+          }, 1500);
+        }
       }
     }
   })
@@ -694,13 +703,51 @@ function resetSkill(indexNewPage){
   }, 1000);
 }
 
-function resetContact(){
+function resetContact(indexNewPage){
 
+  submit.style.transform = "translateY(-200%)";
 
+  allTraitContact.forEach(trait => {
+    trait.style.height = "0%"
+  });
+  allInput.forEach(input => {
+    input.style.width = "0rem";
+  });
+
+  setTimeout(() => {
+    logoSocial3.style.transform = "translateY(-200%)";
+  }, 50);
+
+  setTimeout(() => {
+    logoSocial2.style.transform = "translateY(-200%)";
+  }, 100);
+
+  setTimeout(() => {
+    logoSocial1.style.transform = "translateY(-200%)";
+  }, 150);
+
+  setTimeout(() => {
+    allPContact.forEach(p => {
+      p.style.transform = "translateY(500%)";
+    });
+  }, 300);
+
+  setTimeout(() => {
+    pageTitleContact.style.transition = "all .7s ease-in-out";
+    pageTitleContact.style.opacity = "0";
+    traitContactLeft.style.transition = "all .7s ease-in-out";
+    traitContactLeft.style.width = "0%";
+  }, 350);
   
-    //reset fini, on lance la nouvelle page + display none
-    skillPage.style.display = "none";
-    newPageActive(indexNewPage);
+  setTimeout(() => {
+
+  pageTitleContact.style.transition = "all 1.5s ease-in-out";
+  traitContactLeft.style.transition = "all 1.5s ease-in-out";
+
+  //reset fini, on lance la nouvelle page + display none
+  contactPage.style.display = "none";
+  newPageActive(indexNewPage);
+  }, 1050);
 }
 
 /* Reset End */
