@@ -171,12 +171,12 @@ allBtnNavBar.forEach((btn, index) => {
         reset(indexNewPage);
 
         //On rénialise après 1.2s le blockSpam
-        //(sauf si c'est la page Achievement, là 8s)
+        //(sauf si c'est la page Achievement, là 5s)
         if(allSection[index] == "skill"){
           console.log('achievemet');
           setTimeout(() => {
             blockSpam = "none";
-          }, 8000);
+          }, 5000);
         } else {
           setTimeout(() => {
             blockSpam = "none";
@@ -358,24 +358,24 @@ function spawnSkill(){
   //Le "je suis"
   setTimeout(() => {
     Iam.style.transform = "translateX(0%)";
-  }, 450);
+  }, 350);
 
   //Les compétences qui arrivent une à une
   setTimeout(() => {
     spanDesc1.style.transform = "translateY(0%)";
-  }, 1300);
+  }, 1200);
   setTimeout(() => {
     spanDesc2.style.transform = "translateY(0%)";
-  }, 1900);
+  }, 1700);
   setTimeout(() => {
     spanDesc3.style.transform = "translateY(0%)";
-  }, 2400);
+  }, 2200);
   setTimeout(() => {
     spanDesc4.style.transform = "translateY(0%)";
-  }, 3100);
+  }, 2700);
   setTimeout(() => {
     spanDesc5.style.transform = "translateY(0%)";
-  }, 3700);
+  }, 3200);
 
   setTimeout(() => {
     allPSkill.forEach(skill => {
@@ -385,21 +385,21 @@ function spawnSkill(){
     //le titre
     pageTitleSkill.style.opacity = "1";
 
-  }, 4100);
+  }, 3500);
 
   // Les bar de skill
   setTimeout(() => {
     skillBar1.style.transform = "translateX(0)";
-  }, 5300);
+  }, 3500);
   setTimeout(() => {
     skillBar2.style.transform = "translateX(0)";
-  }, 5600);
+  }, 3800);
   setTimeout(() => {
     skillBar3.style.transform = "translateX(0)";
-  }, 5900);
+  }, 4100);
   setTimeout(() => {
     skillBar4.style.transform = "translateX(0)";
-  }, 6300);
+  }, 4400);
 
   //les bar de skill blanches qui progress
   let p=1;
@@ -408,7 +408,7 @@ function spawnSkill(){
       front.setAttribute("id", 'front_'+p);
       p++
     });
-  }, 6300);
+  }, 4500);
 }
 
 // Apparition de Contact
@@ -422,40 +422,27 @@ function spawnContact(){
   setTimeout(() => {
     //apparition titre
     pageTitleContact.style.opacity = "1";
-    traitContactLeft.style.width = "100%";
-  }, 50);
-
-  setTimeout(() => {
-    allPContact.forEach(p => {
-      p.style.transform = "translateY(0%)";
-    });
-  }, 1250);
-
-  setTimeout(() => {
-    logoSocial1.style.transform = "translateY(0%)";
-  }, 1450);
-
-  setTimeout(() => {
-    logoSocial2.style.transform = "translateY(0%)";
-  }, 1650);
-
-  setTimeout(() => {
-    logoSocial3.style.transform = "translateY(0%)";
-  }, 1850);
-
-  setTimeout(() => {
+    submit.style.transform = "translateY(0%)";
     allTraitContact.forEach(trait => {
       trait.style.height = "100%"
     });
     allInput.forEach(input => {
       input.style.width = "31rem";
     });
-  }, 2500);
+    logoSocial1.style.transform = "translateY(0%)";
+  }, 50);
 
   setTimeout(() => {
-    submit.style.transform = "translateY(0%)";
-  }, 2800);
+    logoSocial2.style.transform = "translateY(0%)";
+  }, 250);
 
+  setTimeout(() => {
+    allPContact.forEach(p => {
+      p.style.transform = "translateY(0%)";
+    });
+    logoSocial3.style.transform = "translateY(0%)";
+    traitContactLeft.style.width = "100%";
+  }, 350);
 }
 
 // Toutes les apparitions END !
