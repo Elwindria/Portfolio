@@ -430,20 +430,23 @@ function spawnContact(){
     allInput.forEach(input => {
       input.style.width = "31rem";
     });
-    logoSocial1.style.transform = "translateY(0%)";
+    traitContactLeft.style.width = "100%";
   }, 50);
-
-  setTimeout(() => {
-    logoSocial2.style.transform = "translateY(0%)";
-  }, 250);
 
   setTimeout(() => {
     allPContact.forEach(p => {
       p.style.transform = "translateY(0%)";
     });
-    logoSocial3.style.transform = "translateY(0%)";
-    traitContactLeft.style.width = "100%";
+    logoSocial1.style.transform = "translateY(0%)";
   }, 350);
+
+  setTimeout(() => {
+    logoSocial2.style.transform = "translateY(0%)";
+  }, 450);
+
+  setTimeout(() => {
+    logoSocial3.style.transform = "translateY(0%)";
+  }, 550);
 
   setTimeout(() => {
     for(let h=0;h<4;h++){
