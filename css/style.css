@@ -515,7 +515,6 @@ h4{
 /* Contact Start */
 
 #contact{
-    display: flex;
     justify-content: space-between;
     padding-bottom: 1rem;
 }
@@ -544,7 +543,7 @@ h4{
     line-height: 1.8125rem;
     color: rgba(251, 251, 251, 0.7);
     transform: translateY(500%);
-    transition: all 1.5s ease-in-out;
+    transition: all .7s ease-in-out;
 }
 
 #trait_contact_left{
@@ -554,6 +553,35 @@ h4{
     transition: all 1.5s ease-in-out;
 }
 
+#text_form_div{
+    height: 12.5rem;
+}
+
+#social{
+    display: flex;
+    gap: 2.1875rem;
+    padding: 1.25rem;
+    box-sizing: border-box;
+}
+
+.logo_social{
+    width: 3.75rem;
+    height: 3.75rem;
+    transition: all .7s ease-in-out;
+}
+
+#logo_social_1{
+    transform: translateY(-150%);
+}
+
+#logo_social_2{
+    transform: translateY(-200%);
+}
+
+#logo_social_3{
+    transform: translateY(-250%);
+}
+
 form{
     display: flex;
     flex-direction: column;
@@ -561,8 +589,10 @@ form{
     gap: 1.25rem;
 }
 
-#text_form_div{
-    height: 12.5rem;
+.form_flex{
+    height: 3.125rem;
+    display: flex;
+    align-items: center;
 }
 
 .input{
@@ -580,44 +610,28 @@ form{
     width: 0rem;
     transition: all 1.5s ease-in-out;
     text-align: left;
-    text-indent: .4375rem;
+    text-indent: .9rem;
 }
 
 #submit{
     justify-content: center;
-    text-indent: unset;
     width: 12.5rem;
-    transform: translateY(200%);
+    transform: translateY(-200%);
     transition: all 1.5s ease-in-out;
     color: #fbfbfb;
-}
-
-#social{
-    display: flex;
-    gap: 2.1875rem;
-    padding: 1.25rem;
-    box-sizing: border-box;
-}
-
-.logo_social{
-    width: 3.75rem;
-    height: 3.75rem;
-    transform: translateY(-150%);
-    transition: all 1.5s ease-in-out;
-}
-
-.form_flex{
-    height: 3.125rem;
-    display: flex;
-    align-items: center;
-    gap: .125rem;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.375rem;
+    height: 100%;
+    border: unset;
 }
 
 .trait_contact{
     height: 0%;
     width: .0625rem;
     background-color: #D4D4D4;
-    transition: all 1.5s ease-in-out;
+    transition: all .7s ease-in-out;
 }
 
 label{

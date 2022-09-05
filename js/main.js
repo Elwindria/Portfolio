@@ -130,6 +130,19 @@ const skillBar2 = document.querySelector('#skill_bar_2');
 const skillBar3 = document.querySelector('#skill_bar_3');
 const skillBar4 = document.querySelector('#skill_bar_4');
 
+//Const pour contact
+const contactPage = document.querySelector('#contact');
+const pageTitleContact = document.querySelector('#page_title_contact');
+const allPContact = document.querySelectorAll('.p_contact');
+const traitContactLeft = document.querySelector('#trait_contact_left');
+const allInput = document.querySelectorAll('.input');
+const submit = document.querySelector('#submit');
+const allLogoSocial = document.querySelectorAll('.logo_social');
+const allTraitContact = document.querySelectorAll('.trait_contact');
+const logoSocial1 = document.querySelector('#logo_social_1');
+const logoSocial2 = document.querySelector('#logo_social_2');
+const logoSocial3 = document.querySelector('#logo_social_3');
+
 // All Const Stop 
 //=======================================================
 // Naviguation avec la barre de Nav - Reset - synchronisation - START
@@ -389,6 +402,53 @@ function spawnSkill(){
   }, 6500);
 }
 
+// Apparition de Contact
+function spawnContact(){
+
+  // On rend actif la page
+  contactPage.style.display = "flex";
+  // On la marque comme page active
+  contactPage.dataset.pageActive = "active";
+
+  setTimeout(() => {
+    //apparition titre
+    pageTitleContact.style.opacity = "1";
+    traitContactLeft.style.width = "100%";
+  }, 50);
+
+  setTimeout(() => {
+    allPContact.forEach(p => {
+      p.style.transform = "translateY(0%)";
+    });
+  }, 1250);
+
+  setTimeout(() => {
+    logoSocial1.style.transform = "translateY(0%)";
+  }, 1450);
+
+  setTimeout(() => {
+    logoSocial2.style.transform = "translateY(0%)";
+  }, 1650);
+
+  setTimeout(() => {
+    logoSocial3.style.transform = "translateY(0%)";
+  }, 1850);
+
+  setTimeout(() => {
+    allTraitContact.forEach(trait => {
+      trait.style.height = "100%"
+    });
+    allInput.forEach(input => {
+      input.style.width = "31rem";
+    });
+  }, 2500);
+
+  setTimeout(() => {
+    submit.style.transform = "translateY(0%)";
+  }, 2800);
+
+}
+
 // Toutes les apparitions END !
 //=============================================
 // =================================================
@@ -634,6 +694,15 @@ function resetSkill(indexNewPage){
   skillPage.style.display = "none";
   newPageActive(indexNewPage);
   }, 1000);
+}
+
+function resetContact(){
+
+
+  
+    //reset fini, on lance la nouvelle page + display none
+    skillPage.style.display = "none";
+    newPageActive(indexNewPage);
 }
 
 /* Reset End */
