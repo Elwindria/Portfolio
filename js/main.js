@@ -142,6 +142,7 @@ const allTraitContact = document.querySelectorAll('.trait_contact');
 const logoSocial1 = document.querySelector('#logo_social_1');
 const logoSocial2 = document.querySelector('#logo_social_2');
 const logoSocial3 = document.querySelector('#logo_social_3');
+const placeholder = ["Nom :","Email :","Votre message..."];
 
 // All Const Stop 
 //=======================================================
@@ -443,6 +444,12 @@ function spawnContact(){
     logoSocial3.style.transform = "translateY(0%)";
     traitContactLeft.style.width = "100%";
   }, 350);
+
+  setTimeout(() => {
+    for(let h=0;h<4;h++){
+      allInput[h].placeholder= placeholder[h];
+    }
+  }, 400);
 }
 
 // Toutes les apparitions END !
@@ -699,6 +706,7 @@ function resetContact(indexNewPage){
   });
   allInput.forEach(input => {
     input.style.width = "0rem";
+    input.placeholder = " ";
   });
 
   setTimeout(() => {
