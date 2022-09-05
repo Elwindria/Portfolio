@@ -423,7 +423,7 @@ function spawnContact(){
   setTimeout(() => {
     //apparition titre
     pageTitleContact.style.opacity = "1";
-    submit.style.transform = "translateY(0%)";
+
     allTraitContact.forEach(trait => {
       trait.style.height = "100%"
     });
@@ -434,25 +434,29 @@ function spawnContact(){
   }, 50);
 
   setTimeout(() => {
-    allPContact.forEach(p => {
-      p.style.transform = "translateY(0%)";
-    });
-    logoSocial1.style.transform = "translateY(0%)";
-  }, 350);
-
-  setTimeout(() => {
-    logoSocial2.style.transform = "translateY(0%)";
-  }, 450);
-
-  setTimeout(() => {
-    logoSocial3.style.transform = "translateY(0%)";
-  }, 550);
-
-  setTimeout(() => {
     for(let h=0;h<4;h++){
       allInput[h].placeholder= placeholder[h];
     }
   }, 400);
+
+  setTimeout(() => {
+    allPContact.forEach(p => {
+      p.style.transform = "translateY(0%)";
+    });
+    logoSocial1.style.transform = "translateY(0%)";
+  }, 650);
+
+  setTimeout(() => {
+    logoSocial2.style.transform = "translateY(0%)";
+  }, 850);
+
+  setTimeout(() => {
+    logoSocial3.style.transform = "translateY(0%)";
+  }, 950);
+
+  setTimeout(() => {
+    submit.style.transform = "translateY(0%)";
+  }, 700);
 }
 
 // Toutes les apparitions END !
@@ -704,14 +708,6 @@ function resetContact(indexNewPage){
 
   submit.style.transform = "translateY(-200%)";
 
-  allTraitContact.forEach(trait => {
-    trait.style.height = "0%"
-  });
-  allInput.forEach(input => {
-    input.style.width = "0rem";
-    input.placeholder = " ";
-  });
-
   setTimeout(() => {
     logoSocial3.style.transform = "translateY(-200%)";
   }, 50);
@@ -731,6 +727,13 @@ function resetContact(indexNewPage){
   }, 300);
 
   setTimeout(() => {
+    allTraitContact.forEach(trait => {
+      trait.style.height = "0%"
+    });
+    allInput.forEach(input => {
+      input.style.width = "0rem";
+      input.placeholder = " ";
+    });
     pageTitleContact.style.transition = "all .7s ease-in-out";
     pageTitleContact.style.opacity = "0";
     traitContactLeft.style.transition = "all .7s ease-in-out";
