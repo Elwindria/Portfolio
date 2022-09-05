@@ -177,11 +177,11 @@ allBtnNavBar.forEach((btn, index) => {
           console.log('achievemet');
           setTimeout(() => {
             blockSpam = "none";
-          }, 5000);
+          }, 5400);
         } else {
           setTimeout(() => {
             blockSpam = "none";
-          }, 1500);
+          }, 1700);
         }
       }
     }
@@ -245,17 +245,17 @@ function spawnNavBar(){
 
   // les multiples traits
   allTraitNavBar.forEach(trait => {
-    trait.style.height = "50px"; 
+    trait.style.height = "3.125rem"; 
   });
 
   //les boutons (a)
   setTimeout(() => {
     allLiBtnNavBar.forEach(btn => {
-      btn.style.transform = "translateY(0px)";
+      btn.style.transform = "translateY(0rem)";
       btn.style.opacity = "1";
     });
     allLiBtnNavBarSlow.forEach(btn => {
-      btn.style.transform = "translateY(0px)";
+      btn.style.transform = "translateY(0rem)";
       btn.style.opacity = "1";
     })
   }, 100);
@@ -263,7 +263,7 @@ function spawnNavBar(){
 
 //Slide de la navBar
 function navBarSlide(){
-  navBar.style.right = '-48vw';
+  navBar.style.right = '-50rem';
 }
 
 // Apparition de HOME
@@ -276,16 +276,16 @@ function spawnHome(){
 
   //barre du milieu
   setTimeout(() => {
-    traitHome.style.width = "1500px";
+    traitHome.style.width = "93.75rem";
   }, 200);
 
   //les deux titres
   setTimeout(() => {
     titleHome.forEach(title => {
-      title.style.transform = 'translateY(0px)';
+      title.style.transform = 'translateY(0rem)';
       title.style.opacity = "1";
     });
-    titleHome2.style.transform = 'translateY(0px)';
+    titleHome2.style.transform = 'translateY(0rem)';
     titleHome2.style.opacity = "1";
   }, 1000);
 }
@@ -312,8 +312,8 @@ function spawnPresentation(){
   }, 100);
 
   setTimeout(() => {
-    pDivPresentation.style.bottom = "400px";
-    imagePresentation.style.bottom = "400px";
+    pDivPresentation.style.bottom = "25rem";
+    imagePresentation.style.bottom = "25rem";
   }, 500);
 }
 
@@ -486,12 +486,12 @@ function resetNavBar(){
   // les multiples traits
   allTraitNavBar.forEach(trait => {
     trait.style.transition = "all .7s ease-in-out";
-    trait.style.height = "0px"; 
+    trait.style.height = "0rem"; 
   });
 
   setTimeout(() => {
     navBar.style.transition = "all .1s ease-in-out";
-    navBar.style.right = '0px';
+    navBar.style.right = '0rem';
   }, 900);
 
   setTimeout(() => {
@@ -512,8 +512,11 @@ function resetNavBar(){
 //Reset de HOME
 function resetHome(indexNewPage){
 
-  //On déplace aussi la navBar car c'est plus home la page Active
-  navBarSlide();
+  if(window.innerWidth > 768){
+    //On déplace aussi la navBar car c'est plus home la page Active
+    navBarSlide();
+  }
+
 
   //les deux titres
   titleHome.forEach(title => {
@@ -528,7 +531,7 @@ function resetHome(indexNewPage){
   //barre du milieu
   setTimeout(() => {
     traitHome.style.transition = "all .7s ease-in-out";
-    traitHome.style.width = "0px";
+    traitHome.style.width = "0rem";
   }, 100);
 
   setTimeout(() => {
@@ -558,8 +561,8 @@ function resetPresentation(indexNewPage){
       pDivPresentation.style.transition = "all .7s ease-in-out";
       imagePresentation.style.transition = "all .7s ease-in-out";
 
-      pDivPresentation.style.bottom = "0px";
-      imagePresentation.style.bottom = "0px";
+      pDivPresentation.style.bottom = "0rem";
+      imagePresentation.style.bottom = "0rem";
     }, 100);
 
     //trait
@@ -571,8 +574,8 @@ function resetPresentation(indexNewPage){
     traitPresentationBotLeft.style.transition = "all .7s ease-in-out";
     traitPresentationBotRight.style.transition = "all .7s ease-in-out";
 
-    traitPresentationBotRight.style.width = "0px";
-    traitPresentationBotLeft.style.width = "0px";
+    traitPresentationBotRight.style.width = "0rem";
+    traitPresentationBotLeft.style.width = "0rem";
   }, 200);
 
   setTimeout(() => {

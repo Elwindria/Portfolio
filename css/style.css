@@ -16,6 +16,8 @@ canvas{
 
 html{
     scroll-behavior:smooth;
+    font-size: 100%;
+
 }
 
 .fullVh{
@@ -249,7 +251,6 @@ li{
 
 #achievement{
     height: unset;
-    width: 100%;
 }
 
 #page_title_achievement{
@@ -267,6 +268,7 @@ li{
 .div_achievement{
     display: flex;
     align-items: center;
+    justify-content: space-around;
     gap: 3.125rem;
 }
 
@@ -287,8 +289,7 @@ li{
 }
 
 .div_achievement > .overflow{
-    width: 50rem;
-    height: 25rem;
+    width: 50%;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -369,6 +370,10 @@ h4{
     gap: .3125rem;
     opacity: 0;
     transition: all .7s ease-in-out;
+}
+
+#arrow > img{
+    width: 3.125rem;
 }
 
 .bounce{
@@ -666,4 +671,63 @@ label{
     --d: 100%;
 }
 
+/* Hover End */
+/* Responsive Start */
 
+@media screen and (max-width: 1800px){
+    html{
+        font-size: 95%;
+    }
+}
+
+@media screen and (max-width: 1700px){
+    html{
+        font-size: 90%;
+    }
+}
+
+@media screen and (max-width: 1600px){
+    html{
+        font-size: 85%;
+    }
+}
+
+@media screen and (max-width: 1500px){
+    html{
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 1400px){
+    html{
+        font-size: 75%;
+    }
+}
+
+@media screen and (max-width: 1280px){
+    html{
+        font-size: 70%;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    html{
+        font-size: 60%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    html{
+        font-size: 50%;
+    }
+
+    #presentation{
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (max-width: 480px){
+
+}
+
+/* Responsive End */
