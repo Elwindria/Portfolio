@@ -349,24 +349,24 @@ function spawnSkill(){
   //Le "je suis"
   setTimeout(() => {
     Iam.style.transform = "translateX(0%)";
-  }, 650);
+  }, 450);
 
   //Les compétences qui arrivent une à une
   setTimeout(() => {
     spanDesc1.style.transform = "translateY(0%)";
-  }, 1500);
+  }, 1300);
   setTimeout(() => {
     spanDesc2.style.transform = "translateY(0%)";
-  }, 2100);
+  }, 1900);
   setTimeout(() => {
     spanDesc3.style.transform = "translateY(0%)";
-  }, 2600);
+  }, 2400);
   setTimeout(() => {
     spanDesc4.style.transform = "translateY(0%)";
-  }, 3300);
+  }, 3100);
   setTimeout(() => {
     spanDesc5.style.transform = "translateY(0%)";
-  }, 3900);
+  }, 3700);
 
   setTimeout(() => {
     allPSkill.forEach(skill => {
@@ -376,21 +376,21 @@ function spawnSkill(){
     //le titre
     pageTitleSkill.style.opacity = "1";
 
-  }, 4300);
+  }, 4100);
 
   // Les bar de skill
   setTimeout(() => {
     skillBar1.style.transform = "translateX(0)";
-  }, 5500);
+  }, 5300);
   setTimeout(() => {
     skillBar2.style.transform = "translateX(0)";
-  }, 5800);
+  }, 5600);
   setTimeout(() => {
     skillBar3.style.transform = "translateX(0)";
-  }, 6100);
+  }, 5900);
   setTimeout(() => {
     skillBar4.style.transform = "translateX(0)";
-  }, 6400);
+  }, 6300);
 
   //les bar de skill blanches qui progress
   let p=1;
@@ -399,7 +399,7 @@ function spawnSkill(){
       front.setAttribute("id", 'front_'+p);
       p++
     });
-  }, 6500);
+  }, 6300);
 }
 
 // Apparition de Contact
