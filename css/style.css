@@ -182,34 +182,17 @@ li{
 
 #div_presentation{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    height: 25.125rem;
-    padding: 0;
+    align-items: center;
 }
 
 #presentation_left{
     width: 60%;
 }
 
-#presentation_right{
-    padding: 0;
-}
-
-#trait_presentation_top_left{
-    width: .125rem;
-}
-
 #trait_presentation_bot_left{
     width: 0rem;
     height: .125rem;
-    transition: all 1.5s ease-in-out;
-}
-
-#div_p_presentation{
-    position:relative;
-    bottom: 0rem;
-    left: .625rem;
     transition: all 1.5s ease-in-out;
 }
 
@@ -220,23 +203,15 @@ li{
     font-size: 1.375rem;
     line-height: 1.8125rem;
     color: rgba(251, 251, 251, 0.7);
+    transition: all 1.5s ease-in-out;
 }
 
 #trait_presentation_top_right{
     width: .125rem;
-    position: relative;
-    right: -99%;
-}
-
-#trait_presentation_bot_right{
-    width: 0rem;
-    transition: all 1.5s ease-in-out;
-    height: .125rem;
 }
 
 .trait_presentation_top{
     height: 25rem;
-    transform: translateY(100%);
     transition: all 1.5s ease-in-out;
 }
 
@@ -724,6 +699,23 @@ label{
     #presentation{
         justify-content: space-evenly;
     }
+
+    /* NavBar Responsive - Start */
+    #navBar{
+        top: 4rem;
+    }
+    
+    #navBar > ul {
+        gap: 3rem;
+        height: 4.5rem;
+    }
+    
+    .btn_nav_bar{
+        font-size: 1.6rem;
+        padding-bottom: .25rem;
+    }
+
+    /* NavBar Responsive - End */
 }
 
 @media screen and (max-width: 480px){
