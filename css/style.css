@@ -177,7 +177,8 @@ li{
 /* Presentation START */
 
 #presentation{
-    overflow: hidden;
+    gap: 6.25rem;
+    justify-content: unset;
 }
 
 #div_presentation{
@@ -188,12 +189,26 @@ li{
 
 #presentation_left{
     width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#trait_presentation_bot_left{
-    width: 0rem;
+#presentation_right{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#trait_presentation_left{
+    width: 0%;
     height: .125rem;
     transition: all 1.5s ease-in-out;
+}
+
+#trait_presentation_right{
+    width: .125rem;
+    height: 0%;
 }
 
 .p_presentation{
@@ -204,20 +219,12 @@ li{
     line-height: 1.8125rem;
     color: rgba(251, 251, 251, 0.7);
     transition: all 1.5s ease-in-out;
-}
-
-#trait_presentation_top_right{
-    width: .125rem;
-}
-
-.trait_presentation_top{
-    height: 25rem;
-    transition: all 1.5s ease-in-out;
+    transform: translateY(300%);
 }
 
 #img_presentation{
-    position: relative;
-    bottom: 0rem;
+    width: 12.5rem;
+    transform: translateX(150%);
     transition: all 1.5s ease-in-out;
 }
 
@@ -428,7 +435,7 @@ h4{
 }
 
 .span_desc{
-    transform: translateY(-120%);
+    transform: translateY(-150%);
     transition: all .3s ease-in-out;
 }
 
@@ -597,7 +604,7 @@ form{
     justify-content: center;
     width: 12.5rem;
     transform: translateY(-200%);
-    transition: all 1.5s ease-in-out;
+    transition: all .7s ease-in-out;
     color: #fbfbfb;
     font-family: 'Jost';
     font-style: normal;
@@ -696,8 +703,9 @@ label{
         font-size: 50%;
     }
 
-    #presentation{
-        justify-content: space-evenly;
+    .fullVh{
+        min-height: 100vh;
+        height: unset;
     }
 
     /* NavBar Responsive - Start */
@@ -711,11 +719,22 @@ label{
     }
     
     .btn_nav_bar{
-        font-size: 1.6rem;
-        padding-bottom: .25rem;
+        font-size: 1.7rem;
     }
 
     /* NavBar Responsive - End */
+    /* Presentation start */
+
+    #div_presentation{
+        flex-direction: column;
+        gap: 6.25rem;
+    }
+
+    .p_presentation{
+        font-size: 1.75rem;
+    }
+
+    /* Presentation stop */
 }
 
 @media screen and (max-width: 480px){

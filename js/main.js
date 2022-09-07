@@ -90,9 +90,11 @@ const titleHome2 = document.querySelector('#title_home_2');
 
 //Const pour presentation 
 const presentationPage = document.querySelector("#presentation");
-const pDivPresentation = document.querySelector('#div_p_presentation');
+const allPPresentation = document.querySelectorAll('.p_presentation');
 const imagePresentation = document.querySelector('#img_presentation');
 const pageTitlePresentation = document.querySelector('#page_title_presentation');
+const traitPresentationLeft = document.querySelector('#trait_presentation_left');
+const traitPresentationRight = document.querySelector('#trait_presentation_right');
 
 //Const pour achievement 
 const achievementPage = document.querySelector("#achievement");
@@ -305,12 +307,16 @@ function spawnPresentation(){
 
   setTimeout(() => {
     pageTitlePresentation.style.opacity = "1";
+    traitPresentationLeft.style.width = '100%';
+    traitPresentationRight.style.height = "100%";
   }, 100);
 
   setTimeout(() => {
-    pDivPresentation.style.bottom = "25rem";
-    imagePresentation.style.bottom = "25rem";
-  }, 500);
+    allPPresentation.forEach(p => {
+      p.style.transform = "translateY(0%)";
+    });
+    imagePresentation.style.transform = 'translateX(0)';
+  }, 900);
 }
 
 // Apparition de Achievement
@@ -549,25 +555,32 @@ function resetHome(indexNewPage){
 function resetPresentation(indexNewPage){
 
   setTimeout(() => {
+    allPPresentation.forEach(p => {
+      p.style.transition = "all .7s ease-in-out";
+      p.style.transform = "translateY(300%)";
+    });
+    imagePresentation.style.transition = "all .7s ease-in-out";
+    imagePresentation.style.transform = 'translateX(150%)';
 
     pageTitlePresentation.style.opacity = "0";
-    pageTitlePresentation.style.transition = "all .7s ease-in-out";
+  }, 50);
 
-    setTimeout(() => {
-      pDivPresentation.style.transition = "all .7s ease-in-out";
-      imagePresentation.style.transition = "all .7s ease-in-out";
+  setTimeout(() => {
+    traitPresentationLeft.style.transition = "all .7s ease-in-out";
+    traitPresentationRight.style.transition = "all .7s ease-in-out";
 
-      pDivPresentation.style.bottom = "0rem";
-      imagePresentation.style.bottom = "0rem";
-    }, 100);
-
-  }, 200);
+    traitPresentationLeft.style.width = '0%';
+    traitPresentationRight.style.height = "0%";
+  }, 250);
 
   setTimeout(() => {
 
-    pDivPresentation.style.transition = "all 1.5s ease-in-out";
+    traitPresentationLeft.style.transition = "all 1.5s ease-in-out";
+    traitPresentationRight.style.transition = "all 1.5s ease-in-out";
     imagePresentation.style.transition = "all 1.5s ease-in-out";
-    pageTitlePresentation.style.transition = "all 1.5s ease-in-out";
+    allPPresentation.forEach(p =>{
+      p.style.transition = "all 1.5s ease-in-out";
+    })
 
     //reset fini, on lance la nouvelle page + display none
     presentationPage.style.display = "none";
@@ -647,7 +660,7 @@ function resetSkill(indexNewPage){
     Iam.style.transform = "translateX(-120%)";
 
     allSpanDesc.forEach(span => {
-      span.style.transform = "translateY(-120%)";
+      span.style.transform = "translateY(-150%)";
     });
 
   }, 50);
