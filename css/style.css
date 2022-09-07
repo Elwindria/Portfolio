@@ -441,6 +441,7 @@ h4{
 
 #CV{
     display: unset;
+    text-decoration: none;
 }
 
 #all_skill_bar{
@@ -773,6 +774,7 @@ label{
     }
 
     #all_description{
+        gap: 2.5rem;
         width: 80%;
     }
 
