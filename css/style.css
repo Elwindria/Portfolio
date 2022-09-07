@@ -85,11 +85,10 @@ width: 0rem;
     transition: all 1.5s ease-in-out;
 }
 
-#navBar > ul {
+#all_ul{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.875rem;
     height: 3.125rem;
     overflow: hidden;
 }
@@ -101,6 +100,7 @@ width: 0rem;
     gap: 1.875rem;
     height: 3.125rem;
     overflow: hidden;
+    padding-left: 1.875rem;
 }
 
 li{
@@ -708,9 +708,6 @@ label{
 }
 
 @media screen and (max-width: 768px){
-    html{
-        font-size: 50%;
-    }
 
     .fullVh{
         min-height: 100vh;
@@ -723,9 +720,13 @@ label{
         top: 4rem;
     }
     
-    #navBar > ul {
+    #all_ul{
         gap: 1.9rem;
         height: 4.5rem;
+    }
+
+    .ul_responsive{
+        padding-left: 0;
     }
     
     .btn_nav_bar{
@@ -804,10 +805,9 @@ label{
         padding: 20rem 1rem 5rem 1rem;
     }
 
-    #navBar > ul{
+    #all_ul{
         flex-direction: column;
         height: 9rem;
-        padding-left: 0;
     }
 
     .title_home{
