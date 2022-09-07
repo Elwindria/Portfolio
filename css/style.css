@@ -5,6 +5,7 @@ body{
     padding:0;
     box-sizing:border-box;
     overflow-x: hidden;
+    background-color: #040D20;
 }
 
 canvas{
@@ -17,7 +18,6 @@ canvas{
 html{
     scroll-behavior:smooth;
     font-size: 100%;
-
 }
 
 .fullVh{
@@ -423,8 +423,6 @@ h4{
     line-height: 1.8125rem;
     color: rgba(251, 251, 251, 0.7);
     margin: 0;
-    display: flex;
-    gap: .5rem;
     transform: translateX(-120%);
     transition: all 1.5s ease-in-out;
 }
@@ -437,15 +435,12 @@ h4{
     line-height: 1.8125rem;
     color: rgba(251, 251, 251, 0.7);
     margin: 0;
-    display: flex;
-    gap: .5rem;
-    transition: all .6s ease-in-out;
+    transition: all 1.5s ease-in-out;
     transform : translateX(-120%);
 }
 
-.span_desc{
-    transform: translateY(-150%);
-    transition: all .3s ease-in-out;
+#CV{
+    display: unset;
 }
 
 #all_skill_bar{
@@ -477,7 +472,7 @@ h4{
 .background_skill_bar{
     width: 100%;
     height: .875rem;
-    background: #090909;
+    background: rgb(57, 57, 57);
     border-radius: 25px;
     padding: .125rem;
     box-sizing: border-box;
@@ -765,6 +760,10 @@ label{
         width: 80%;
     }
 
+    .p_achievement{
+        font-size: 1.75rem;
+    }
+
     /* Achievement STOP */
     /* skill START */
 
@@ -780,6 +779,18 @@ label{
     #all_skill_bar{
         width: 80%;
         align-items: unset;
+    }
+
+    #Iam{
+        font-size: 1.75rem;
+    }
+
+    .p_skill{
+        font-size: 1.75rem;
+    }
+
+    #cv{
+        font-size: 1.75rem;
     }
 
     /* Skill Stop */
@@ -820,7 +831,7 @@ label{
     }
 
     h3{
-        font-size: 3.125rem;
+        font-size: 3.4375rem;
     }
 
     .div_achievement > .overflow {

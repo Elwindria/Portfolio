@@ -118,12 +118,6 @@ const allSkillBar = document.querySelectorAll('.skill_bar');
 const allFrontSkillBar = document.querySelectorAll('.front_skill_bar');
 const Iam = document.querySelector('#Iam');
 
-const spanDesc1 = document.querySelector('#span_desc_1');
-const spanDesc2 = document.querySelector('#span_desc_2');
-const spanDesc3 = document.querySelector('#span_desc_3');
-const spanDesc4 = document.querySelector('#span_desc_4');
-const spanDesc5 = document.querySelector('#span_desc_5');
-
 const skillBar1 = document.querySelector('#skill_bar_1');
 const skillBar2 = document.querySelector('#skill_bar_2');
 const skillBar3 = document.querySelector('#skill_bar_3');
@@ -170,18 +164,10 @@ allBtnNavBar.forEach((btn, index) => {
         // On reset alors la page active, donc on lance l'annimation de sortie
         reset(indexNewPage);
 
-        //On rénialise après 1.2s le blockSpam
-        //(sauf si c'est la page Achievement, là 5s)
-        if(allSection[index] == "skill"){
-          console.log('achievemet');
-          setTimeout(() => {
-            blockSpam = "none";
-          }, 5400);
-        } else {
-          setTimeout(() => {
-            blockSpam = "none";
-          }, 1700);
-        }
+        //On rénialise après 2s le blockSpam
+        setTimeout(() => {
+          blockSpam = "none";
+        }, 2000);
       }
     }
   })
@@ -363,23 +349,6 @@ function spawnSkill(){
     Iam.style.transform = "translateX(0%)";
   }, 350);
 
-  //Les compétences qui arrivent une à une
-  setTimeout(() => {
-    spanDesc1.style.transform = "translateY(0%)";
-  }, 1200);
-  setTimeout(() => {
-    spanDesc2.style.transform = "translateY(0%)";
-  }, 1700);
-  setTimeout(() => {
-    spanDesc3.style.transform = "translateY(0%)";
-  }, 2200);
-  setTimeout(() => {
-    spanDesc4.style.transform = "translateY(0%)";
-  }, 2700);
-  setTimeout(() => {
-    spanDesc5.style.transform = "translateY(0%)";
-  }, 3200);
-
   setTimeout(() => {
     allPSkill.forEach(skill => {
       skill.style.transform = "translateX(0)";
@@ -388,21 +357,21 @@ function spawnSkill(){
     //le titre
     pageTitleSkill.style.opacity = "1";
 
-  }, 3500);
+  }, 600);
 
   // Les bar de skill
   setTimeout(() => {
     skillBar1.style.transform = "translateX(0)";
-  }, 3500);
+  }, 700);
   setTimeout(() => {
     skillBar2.style.transform = "translateX(0)";
-  }, 3800);
+  }, 1000);
   setTimeout(() => {
     skillBar3.style.transform = "translateX(0)";
-  }, 4100);
+  }, 1300);
   setTimeout(() => {
     skillBar4.style.transform = "translateX(0)";
-  }, 4400);
+  }, 1600);
 
   //les bar de skill blanches qui progress
   let p=1;
@@ -411,7 +380,7 @@ function spawnSkill(){
       front.setAttribute("id", 'front_'+p);
       p++
     });
-  }, 4500);
+  }, 1900);
 }
 
 // Apparition de Contact
@@ -635,11 +604,9 @@ function resetSkill(indexNewPage){
   setTimeout(() => {
 
     //les bar de skill blanches qui progress
-    let p=1;
     allFrontSkillBar.forEach(front => { 
       front.style.transition = "all .7s ease-in-out";
       front.setAttribute("id", "");
-      p++
     });
 
     // Les bar de skill
@@ -657,11 +624,8 @@ function resetSkill(indexNewPage){
       skill.style.transform = "translateX(-120%)";
     });
 
+    Iam.style.transition = "all .7s ease-in-out";
     Iam.style.transform = "translateX(-120%)";
-
-    allSpanDesc.forEach(span => {
-      span.style.transform = "translateY(-150%)";
-    });
 
   }, 50);
 
@@ -683,6 +647,7 @@ function resetSkill(indexNewPage){
     bar.style.transition = "all 1.5s ease-in-out";
   });
 
+  Iam.style.transition = "all 1.5s ease-in-out";
   pageTitleSkill.style.transition = "all 1.5s ease-in-out";
 
   allPSkill.forEach(skill => {
