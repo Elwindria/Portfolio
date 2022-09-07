@@ -94,6 +94,15 @@ width: 0rem;
     overflow: hidden;
 }
 
+.ul_responsive{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.875rem;
+    height: 3.125rem;
+    overflow: hidden;
+}
+
 li{
     list-style: none;
 }
@@ -706,6 +715,7 @@ label{
     .fullVh{
         min-height: 100vh;
         height: unset;
+        padding-top: 20rem;
     }
 
     /* NavBar Responsive - Start */
@@ -714,7 +724,7 @@ label{
     }
     
     #navBar > ul {
-        gap: 3rem;
+        gap: 1.9rem;
         height: 4.5rem;
     }
     
@@ -730,15 +740,100 @@ label{
         gap: 6.25rem;
     }
 
+    #presentation_left{
+        width: 80%;
+    }
+
     .p_presentation{
         font-size: 1.75rem;
+        text-align: center;
     }
 
     /* Presentation stop */
+    /* Acheivement start */
+
+    .div_achievement{
+        flex-direction: column;
+    }
+
+    .odd{
+        flex-direction: column-reverse;
+    }
+
+    .div_achievement > .overflow {
+        width: 80%;
+    }
+
+    /* Achievement STOP */
+    /* skill START */
+
+    #all_skill{
+        flex-direction: column;
+        gap: 6.25rem;
+    }
+
+    #all_description{
+        width: 80%;
+    }
+
+    #all_skill_bar{
+        width: 80%;
+        align-items: unset;
+    }
+
+    /* Skill Stop */
+    /* contact START */
+
+    #contact{
+        gap: 6.25rem;
+        justify-content: unset;
+    }
+
+    #contact_flex {
+        justify-content: unset;
+        flex-direction: column;
+        gap: 6.25rem;
+    }
+
+    /* Contact STOP */
 }
 
 @media screen and (max-width: 480px){
 
+    .fullVh{
+        padding: 20rem 1rem 5rem 1rem;
+    }
+
+    #navBar > ul{
+        flex-direction: column;
+        height: 9rem;
+        padding-left: 0;
+    }
+
+    .title_home{
+        font-size: 3.125rem;
+    }
+
+    #title_home_2{
+        font-size: 1.5625rem;
+        text-align: center;
+    }
+
+    h3{
+        font-size: 3.125rem;
+    }
+
+    .div_achievement > .overflow {
+        width: 100%;
+    }
+
+    #all_description{
+        width: 100%;
+    }
+
+    #all_skill_bar{
+        width: 100%;
+    }
 }
 
 /* Responsive End */

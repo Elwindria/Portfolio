@@ -281,7 +281,7 @@ function spawnHome(){
 
   //barre du milieu
   setTimeout(() => {
-    traitHome.style.width = "93.75rem";
+    traitHome.style.width = "90%";
   }, 200);
 
   //les deux titres
