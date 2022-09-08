@@ -135,6 +135,7 @@ const allTraitContact = document.querySelectorAll('.trait_contact');
 const logoSocial1 = document.querySelector('#logo_social_1');
 const logoSocial2 = document.querySelector('#logo_social_2');
 const logoSocial3 = document.querySelector('#logo_social_3');
+const logoSocial4 = document.querySelector('#logo_social_4');
 const placeholder = ["Nom :","Email :","Votre message..."];
 
 // All Const Stop 
@@ -419,10 +420,14 @@ function spawnContact(){
 
   setTimeout(() => {
     logoSocial2.style.transform = "translateY(0%)";
-  }, 850);
+  }, 750);
 
   setTimeout(() => {
     logoSocial3.style.transform = "translateY(0%)";
+  }, 850);
+
+  setTimeout(() => {
+    logoSocial4.style.transform = "translateY(0%)";
   }, 950);
 
   setTimeout(() => {
@@ -669,16 +674,20 @@ function resetContact(indexNewPage){
   submit.style.transform = "translateY(-200%)";
 
   setTimeout(() => {
-    logoSocial3.style.transform = "translateY(-200%)";
+    logoSocial4.style.transform = "translateY(-200%)";
   }, 50);
 
   setTimeout(() => {
-    logoSocial2.style.transform = "translateY(-200%)";
+    logoSocial3.style.transform = "translateY(-200%)";
   }, 100);
 
   setTimeout(() => {
-    logoSocial1.style.transform = "translateY(-200%)";
+    logoSocial2.style.transform = "translateY(-200%)";
   }, 150);
+
+  setTimeout(() => {
+    logoSocial1.style.transform = "translateY(-200%)";
+  }, 200);
 
   setTimeout(() => {
     allPContact.forEach(p => {
