@@ -105,6 +105,7 @@ const arrow = document.querySelector("#arrow")
 
 const linkBaume = document.querySelectorAll('.link_baume');
 const linkBaumeAdmin = document.querySelectorAll('.link_baume_admin');
+const linkHoneyLance = document.querySelectorAll('.link_honeylance');
 const linkShifumi = document.querySelectorAll('.link_shifumi');
 const linkBash = document.querySelectorAll('.link_bash');
 
@@ -733,11 +734,18 @@ linkBaume.forEach(link => {
   })  
 });
 
-// linkk vers Baume.fr/admin
+// link vers Baume.fr/admin
 linkBaumeAdmin.forEach(link => {
   link.addEventListener('click', ()=>{
     window.open('https://pierrel.promo-159.codeur.online/BaumeLesMessieurs/admin.html', '_blank');
   })  
+});
+
+// Link vers HoneyLance
+linkHoneyLance.forEach(link => {
+  link.addEventListener('click', ()=>{
+    windows/open('https://honeylance.vinvui.com/', '_blank');
+  })
 });
 
 // Link vers le Github Shifumi
