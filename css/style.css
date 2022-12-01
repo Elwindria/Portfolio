@@ -404,6 +404,7 @@ h4{
 .description{
     display: flex;
     align-items: center;
+    gap: .1875rem;
     height: 4.375rem;
 }
 
