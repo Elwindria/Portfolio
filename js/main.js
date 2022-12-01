@@ -744,7 +744,7 @@ linkBaumeAdmin.forEach(link => {
 // Link vers HoneyLance
 linkHoneyLance.forEach(link => {
   link.addEventListener('click', ()=>{
-    windows/open('https://honeylance.vinvui.com/', '_blank');
+    window.open('https://honeylance.vinvui.com/', '_blank');
   })
 });
 
