@@ -115,14 +115,8 @@ const pageTitleSkill = document.querySelector('#page_title_skill');
 const allTraitDescription = document.querySelectorAll('.trait_description');
 const allPSkill = document.querySelectorAll('.p_skill');
 const allSpanDesc = document.querySelectorAll('.span_desc');
-const allSkillBar = document.querySelectorAll('.skill_bar');
-const allFrontSkillBar = document.querySelectorAll('.front_skill_bar');
+const allLogoSkill = document.querySelectorAll('.logo_skill');
 const Iam = document.querySelector('#Iam');
-
-const skillBar1 = document.querySelector('#skill_bar_1');
-const skillBar2 = document.querySelector('#skill_bar_2');
-const skillBar3 = document.querySelector('#skill_bar_3');
-const skillBar4 = document.querySelector('#skill_bar_4');
 
 //Const pour contact
 const contactPage = document.querySelector('#contact');
@@ -360,28 +354,20 @@ function spawnSkill(){
 
   }, 600);
 
-  // Les bar de skill
+  //Les logo
   setTimeout(() => {
-    skillBar1.style.transform = "translateX(0)";
-  }, 700);
-  setTimeout(() => {
-    skillBar2.style.transform = "translateX(0)";
-  }, 1000);
-  setTimeout(() => {
-    skillBar3.style.transform = "translateX(0)";
-  }, 1300);
-  setTimeout(() => {
-    skillBar4.style.transform = "translateX(0)";
-  }, 1600);
 
-  //les bar de skill blanches qui progress
-  let p=1;
-  setTimeout(() => {
-    allFrontSkillBar.forEach(front => { 
-      front.setAttribute("id", 'front_'+p);
-      p++
-    });
-  }, 1900);
+    let p=0;
+
+    allLogoSkill.forEach(logo => {
+      p += 100;
+
+      setTimeout(() => {
+        logo.style.transform = "translateY(0)";
+      }, p);
+    });  
+
+  }, 700);
 }
 
 // Apparition de Contact
@@ -608,17 +594,11 @@ function resetSkill(indexNewPage){
 
   setTimeout(() => {
 
-    //les bar de skill blanches qui progress
-    allFrontSkillBar.forEach(front => { 
-      front.style.transition = "all .7s ease-in-out";
-      front.setAttribute("id", "");
-    });
-
-    // Les bar de skill
-    allSkillBar.forEach(bar => {
-      bar.style.transition = "all .7s ease-in-out";
-      bar.style.transform = "translateX(-120%)";
-    });
+    //Les logo 
+    allLogoSkill.forEach(logo => {
+      logo.style.transition = "all .7s ease-in-out";
+        logo.style.transform = "translateY(120%)";
+    });  
 
     //le titre
     pageTitleSkill.style.transition = "all .7s ease-in-out";
@@ -645,11 +625,8 @@ function resetSkill(indexNewPage){
   setTimeout(() => {
 
   //reset de tous les timers
-  allFrontSkillBar.forEach(front => { 
-    front.style.transition = "all 1.5s ease-in-out";
-  });
-  allSkillBar.forEach(bar => {
-    bar.style.transition = "all 1.5s ease-in-out";
+  allLogoSkill.forEach(logo => {
+    logo.style.transition = "all 1.5s ease-in-out";
   });
 
   Iam.style.transition = "all 1.5s ease-in-out";
