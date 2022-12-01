@@ -147,7 +147,6 @@ allBtnNavBar.forEach((btn, index) => {
   btn.addEventListener('click', function(){
 
     let indexNewPage = index;
-    console.log(blockSpam, allSection[index]);
 
     // Ajout d'une protection anti-spam
     if(blockSpam !== "actif"){

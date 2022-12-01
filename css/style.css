@@ -438,7 +438,11 @@ h4{
     transform : translateX(-120%);
 }
 
-#CV{
+.contents{
+    display: contents;
+}
+
+.my_cv{
     display: unset;
     text-decoration: none;
 }
@@ -660,7 +664,8 @@ label{
 /* Hover Constact */
 
 .logo_social_hover:hover{
-    fill: rgba(251, 251, 251, 0.6);
+    transform: scale(1.05);
+    transition: all 0.3 ease-in-out;
 }
 
 /* Hover End */
@@ -796,7 +801,7 @@ label{
         font-size: 1.75rem;
     }
 
-    #cv{
+    .my_cv{
         font-size: 1.75rem;
     }
 
