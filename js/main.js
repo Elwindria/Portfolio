@@ -392,7 +392,7 @@ function spawnContact(){
   }, 50);
 
   setTimeout(() => {
-    for(let h=0;h<4;h++){
+    for(let h=0;h<3;h++){
       allInput[h].placeholder= placeholder[h];
     }
   }, 400);
@@ -784,6 +784,8 @@ const errorEmail = document.querySelector('error_email');
 const errorTextForm = document.querySelector('error_text_form');
 const spanConfirm = document.querySelector('confirm');
 
+console.log(form, inputName, inputEmail, inputTextForm);
+
 form.addEventListener('submit', function(e){
   //empeche le rafraichissement de la page
   e.preventDefault();
@@ -863,7 +865,7 @@ function createAjaxForFormToEmail(){
 
 //reset des inputs
 function resetAllInput(){
-  
+
   spanConfirm.style.color= "#1BBA02";
 
   form.reset();
