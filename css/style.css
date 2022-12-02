@@ -596,6 +596,10 @@ form{
     border: unset;
 }
 
+.error{
+    color: #FF3C30;
+}
+
 .trait_contact{
     height: 0%;
     width: .0625rem;

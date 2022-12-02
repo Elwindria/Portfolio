@@ -771,3 +771,84 @@ arrow.addEventListener('click', ()=>{
 })
 
 /* Animation Arrow de Achievement Stop */
+/* Form to Email START */
+
+//All Const Form
+const form = document.querySelector('form');
+const inputName = document.querySelector('name');
+const inputEmail = document.querySelector('email');
+const inputTextForm = document.querySelector('text_form');
+
+const errorName = document.querySelector('error_name');
+const errorEmail = document.querySelector('error_email');
+const errorTextForm = document.querySelector('error_text_form');
+
+form.addEventListener('submit', function(e){
+  //empeche le rafraichissement de la page
+  e.preventDefault();
+
+  //Lance la vérification JS du Form et de ses inputs
+  checkValidityForm();
+})
+
+//Function vérification inputs du Form
+function checkValidityForm(){
+
+  //initialisation d'une variable validate
+  let validate = true;
+
+  //Vérification de l'input Name
+  if(inputName.validity.valueMissing){
+    errorName.textContent = "Le champ est obligatoire.";
+    validate = false;
+  } else if(inputName.validity.typeMismatch){
+    errorName.textContent = "Le champ n'est pas valide";
+    validate = false;
+  }
+
+  //Vérification de l'input Email
+  if(inputEmail.validity.valueMissing){
+    errorEmail.textContent = "Le champ est obligatoire.";
+    validate = false;
+  } else if(inputEmail.validity.typeMismatch){
+    errorEmail.textContent = "Le champ n'est pas valide";
+    validate = false;
+  }
+
+  //Vérification de l'input TextForm
+  if(inputTextForm.validity.valueMissing){
+    errorTextForm.textContent = "Le champ est obligatoire.";
+    validate = false;
+  } else if(inputTextForm.validity.typeMismatch){
+    errorTextForm.textContent = "Le champ n'est pas valide";
+    validate = false;
+  }
+
+  //Si validate = true alors par d'erreur donc on peut lancer la request Ajax
+  if(validate){
+    createAjaxForFormToEmail();
+  }
+}
+
+function createAjaxForFormToEmail(){
+
+  //Création d'un FormData pour récup les infos de notre Form
+  const formData = new FormData(form);
+
+  //J'envoie mon formData en méthod POST au fichier formToEmail.php
+  fetch("php/formToEmail.php", { method: "POST", body: formData})
+
+  //Je récupère ensuite la réponse de mon fichier php (en Json)
+  //Donc traduction =>
+  .then(response =>response.json())
+
+  //Je récupère le resultat et l'exploite
+  .then((result) => {
+    
+  })
+}
+
+
+//Ne pas oublier le reset des inputs une fois le mail bien envoyer
+
+/* Form to Email END */
