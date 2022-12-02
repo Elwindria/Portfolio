@@ -798,8 +798,6 @@ function checkValidityForm(){
   //initialisation d'une variable validate
   let validate = true;
 
-  console.log(inputName, inputName.validity.valueMissing);
-
   //Vérification de l'input Name
   if(inputName.validity.valueMissing){
     errorName.textContent = "Le champ est obligatoire.";
@@ -847,12 +845,12 @@ function createAjaxForFormToEmail(){
 
   //Je récupère le résultat et l'exploite
   .then((result) => {
-    if(result.reponse === true){
+    if(result === true){
       spanConfirm.textContent = "Votre message à bien été transmis, merci beaucoup";
 
       //Reset des inputs
       resetAllInput();
-    } else if(result.reponse === false){
+    } else if(result === false){
       spanConfirm.style.color= "#FF3C30";
       spanConfirm.textContent = "Une erreur s'est produite";
     } else {
@@ -873,7 +871,6 @@ function resetAllInput(){
   errorName.textContent = " ";
   errorEmail.textContent = " ";
   errorTextForm.textContent = " ";
-  spanConfirm.textContent = " ";
 }
 
 /* Form to Email END */
