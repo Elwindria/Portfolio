@@ -774,17 +774,15 @@ arrow.addEventListener('click', ()=>{
 /* Form to Email START */
 
 //All Const Form
-const form = document.querySelector('form');
-const inputName = document.querySelector('name');
-const inputEmail = document.querySelector('email');
-const inputTextForm = document.querySelector('text_form');
+const form = document.querySelector('#form');
+const inputName = document.querySelector('#name');
+const inputEmail = document.querySelector('#email');
+const inputTextForm = document.querySelector('#text_form');
 
-const errorName = document.querySelector('error_name');
-const errorEmail = document.querySelector('error_email');
-const errorTextForm = document.querySelector('error_text_form');
-const spanConfirm = document.querySelector('confirm');
-
-console.log(form, inputName, inputEmail, inputTextForm);
+const errorName = document.querySelector('#error_name');
+const errorEmail = document.querySelector('#error_email');
+const errorTextForm = document.querySelector('#error_text_form');
+const spanConfirm = document.querySelector('#confirm');
 
 form.addEventListener('submit', function(e){
   //empeche le rafraichissement de la page
@@ -799,6 +797,8 @@ function checkValidityForm(){
 
   //initialisation d'une variable validate
   let validate = true;
+
+  console.log(inputName, inputName.validity.valueMissing);
 
   //Vérification de l'input Name
   if(inputName.validity.valueMissing){
