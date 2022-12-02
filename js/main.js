@@ -782,6 +782,7 @@ const inputTextForm = document.querySelector('text_form');
 const errorName = document.querySelector('error_name');
 const errorEmail = document.querySelector('error_email');
 const errorTextForm = document.querySelector('error_text_form');
+const spanConfirm = document.querySelector('confirm');
 
 form.addEventListener('submit', function(e){
   //empeche le rafraichissement de la page
@@ -842,13 +843,35 @@ function createAjaxForFormToEmail(){
   //Donc traduction =>
   .then(response =>response.json())
 
-  //Je récupère le resultat et l'exploite
+  //Je récupère le résultat et l'exploite
   .then((result) => {
-    
+    if(result.reponse === true){
+      spanConfirm.textContent = "Votre message à bien été transmis, merci beaucoup";
+
+      //Reset des inputs
+      resetAllInput();
+    } else if(result.reponse === false){
+      spanConfirm.style.color= "#FF3C30";
+      spanConfirm.textContent = "Une erreur s'est produite";
+    } else {
+      spanConfirm.style.color= "#FF3C30";
+      spanConfirm.textContent = "Les champs ne peuvent pas être vides.";
+    }
   })
 }
 
 
-//Ne pas oublier le reset des inputs une fois le mail bien envoyer
+//reset des inputs
+function resetAllInput(){
+  
+  spanConfirm.style.color= "#1BBA02";
+
+  form.reset();
+
+  errorName.textContent = " ";
+  errorEmail.textContent = " ";
+  errorTextForm.textContent = " ";
+  spanConfirm.textContent = " ";
+}
 
 /* Form to Email END */
