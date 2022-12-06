@@ -825,10 +825,11 @@ function checkValidityForm(){
     validate = false;
   }
 
-  //Si validate = true alors par d'erreur donc on peut lancer la request Ajax
-  if(validate){
-    createAjaxForFormToEmail();
-  }
+  //Si validate = true alors par d'erreur donc on peut lancer la request Ajax 
+  // (désactiver pour la mise en ligne, Netlify gère les forms directement)
+  // if(validate){
+  //   createAjaxForFormToEmail();
+  // }
 }
 
 function createAjaxForFormToEmail(){
