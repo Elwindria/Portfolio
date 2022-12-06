@@ -707,14 +707,14 @@ function resetContact(indexNewPage){
 // Link vers Baume.fr
 linkBaume.forEach(link => {
   link.addEventListener('click', ()=>{
-    window.open('https://baume-les-messieur.netlify.app/', '_blank');
+    window.open('https://baume-les-messieurs.netlify.app/', '_blank');
   })  
 });
 
 // link vers Baume.fr/admin
 linkBaumeAdmin.forEach(link => {
   link.addEventListener('click', ()=>{
-    window.open('https://baume-les-messieur.netlify.app/admin.html', '_blank');
+    window.open('https://baume-les-messieurs.netlify.app/admin.html', '_blank');
   })  
 });
 
