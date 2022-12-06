@@ -785,8 +785,8 @@ const errorTextForm = document.querySelector('#error_text_form');
 const spanConfirm = document.querySelector('#confirm');
 
 form.addEventListener('submit', function(e){
-  //empeche le rafraichissement de la page
-  e.preventDefault();
+  //empeche le rafraichissement de la page (désactiver pour netlify)
+  // e.preventDefault();
 
   //Lance la vérification JS du Form et de ses inputs
   checkValidityForm();
