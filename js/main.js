@@ -826,10 +826,14 @@ function checkValidityForm(){
   }
 
   //Si validate = true alors par d'erreur donc on peut lancer la request Ajax 
-  // (désactiver pour la mise en ligne, Netlify gère les forms directement)
-  // if(validate){
-  //   createAjaxForFormToEmail();
-  // }
+  // (désactiver pour la mise en ligne, Netlify gère les forms directement, juste message confirmation + reset)
+
+  if(validate){
+    spanConfirm.textContent = "Votre message à bien été transmis, merci beaucoup";
+    resetAllInput();
+    
+    // createAjaxForFormToEmail();
+  }
 }
 
 function createAjaxForFormToEmail(){
@@ -851,6 +855,7 @@ function createAjaxForFormToEmail(){
 
       //Reset des inputs
       resetAllInput();
+
     } else if(result === false){
       spanConfirm.style.color= "#FF3C30";
       spanConfirm.textContent = "Une erreur s'est produite";
