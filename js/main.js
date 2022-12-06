@@ -830,7 +830,6 @@ function checkValidityForm(){
 
   if(validate){
     spanConfirm.textContent = "Votre message à bien été transmis, merci beaucoup";
-    resetAllInput();
     
     // createAjaxForFormToEmail();
   }
