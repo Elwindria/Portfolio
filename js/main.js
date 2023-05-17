@@ -785,8 +785,8 @@ const errorTextForm = document.querySelector('#error_text_form');
 const spanConfirm = document.querySelector('#confirm');
 
 form.addEventListener('submit', function(e){
-  //empeche le rafraichissement de la page (désactiver pour netlify)
-  // e.preventDefault();
+  //empeche le rafraichissement de la page
+  e.preventDefault();
 
   //Lance la vérification JS du Form et de ses inputs
   checkValidityForm();
@@ -826,12 +826,11 @@ function checkValidityForm(){
   }
 
   //Si validate = true alors par d'erreur donc on peut lancer la request Ajax 
-  // (désactiver pour la mise en ligne, Netlify gère les forms directement, juste message confirmation + reset)
 
   if(validate){
     spanConfirm.textContent = "Votre message à bien été transmis, merci beaucoup";
     
-    // createAjaxForFormToEmail();
+    createAjaxForFormToEmail();
   }
 }
 
