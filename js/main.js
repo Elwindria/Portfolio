@@ -849,6 +849,8 @@ function createAjaxForFormToEmail(){
   //Je récupère le résultat et l'exploite
   .then((result) => {
     if(result === true){
+      
+      spanConfirm.style.color= "#1BBA02"
       spanConfirm.textContent = "Votre message à bien été transmis, merci beaucoup";
 
       //Reset des inputs
@@ -875,8 +877,6 @@ function createAjaxForFormToEmail(){
 
 //reset des inputs
 function resetAllInput(){
-
-  spanConfirm.style.color= "#1BBA02";
 
   form.reset();
 
