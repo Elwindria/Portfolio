@@ -828,8 +828,6 @@ function checkValidityForm(){
   //Si validate = true alors par d'erreur donc on peut lancer la request Ajax 
 
   if(validate){
-    spanConfirm.textContent = "Votre message à bien été transmis, merci beaucoup";
-    
     createAjaxForFormToEmail();
   }
 }
