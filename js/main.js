@@ -855,9 +855,17 @@ function createAjaxForFormToEmail(){
       resetAllInput();
 
     } else if(result === false){
+
       spanConfirm.style.color= "#FF3C30";
       spanConfirm.textContent = "Une erreur s'est produite";
+
+    } else if(result.includes('inputEmailNonValide')) {
+      
+      spanConfirm.style.color= "#FF3C30";
+      spanConfirm.textContent = "Les champs mail n'est pas valide.";
+
     } else {
+
       spanConfirm.style.color= "#FF3C30";
       spanConfirm.textContent = "Les champs ne peuvent pas être vides.";
     }
