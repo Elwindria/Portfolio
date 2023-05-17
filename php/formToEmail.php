@@ -13,9 +13,9 @@ require 'vendor/autoload.php';
 // /!\ Attention mon fichier .env est à la racine et mon fichier php est dans un sous dossier, faut donc rajouter après __DIR__ le './../' pour bien remonter à la racine
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
-$username = getenv('USERNAME');
-$password = getenv('PASSWORD');
-$myName = getenv('MYNAME');
+$username = "'".getenv('USERNAME')."'";
+$password = "'".getenv('PASSWORD')."'";
+$myName = "'".getenv('MYNAME')."'";
 
 //Vérification Php
 //initialisation d'une variable réponse
