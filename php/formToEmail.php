@@ -72,6 +72,7 @@ if($reponse){
             <b>Message : </b>' . $textForm . '</p>';
     
         $mail->send();
+        echo"c'est bon !";
         echo json_encode($reponse);
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
