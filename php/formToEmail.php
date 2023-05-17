@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
-require 'vendor/autoload.php';
+require __DIR__ .'/../vendor/autoload.php';
 
 // Chargement des variable de mon .env avec la bibliothèque PhPDotEnv (super pratique et sécu)
 // /!\ Attention mon fichier .env est à la racine et mon fichier php est dans un sous dossier, faut donc rajouter après __DIR__ le './../' pour bien remonter à la racine
@@ -60,7 +60,7 @@ if($reponse){
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
         //Recipients
-        $mail->setFrom($username, $password);
+        $mail->setFrom('p.lopez2000@laposte.net');
         $mail->addAddress($email);                                  //Add a recipient
     
         //Content
@@ -72,7 +72,7 @@ if($reponse){
             <b>Message : </b>' . $textForm . '</p>';
     
         $mail->send();
-        echo"c'est bon !";
+
         echo json_encode($reponse);
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
