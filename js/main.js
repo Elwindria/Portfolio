@@ -707,21 +707,21 @@ function resetContact(indexNewPage){
 // Link vers Baume.fr
 linkBaume.forEach(link => {
   link.addEventListener('click', ()=>{
-    window.open('https://baume-les-messieurs.netlify.app/', '_blank');
+    window.open('https://baume-les-messieurs.elwindria.com/', '_blank');
   })  
 });
 
 // link vers Baume.fr/admin
 linkBaumeAdmin.forEach(link => {
   link.addEventListener('click', ()=>{
-    window.open('https://baume-les-messieurs.netlify.app/admin.html', '_blank');
+    window.open('https://baume-les-messieurs.elwindria.com/admin.html', '_blank');
   })  
 });
 
 // Link vers HoneyLance
 linkHoneyLance.forEach(link => {
   link.addEventListener('click', ()=>{
-    window.open('https://honeylance.vinvui.com/', '_blank');
+    window.open('https://honeylance.elwindria.com/', '_blank');
   })
 });
 
