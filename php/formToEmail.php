@@ -13,9 +13,9 @@ require __DIR__ .'/../vendor/autoload.php';
 // /!\ Attention mon fichier .env est à la racine et mon fichier php est dans un sous dossier, faut donc rajouter après __DIR__ le './../' pour bien remonter à la racine
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
-$username = "'".getenv('USERNAME')."'";
-$password = "'".getenv('PASSWORD')."'";
-$myName = "'".getenv('MYNAME')."'";
+$gmail = $_ENV['USERNAME'];
+$gmail_password = $_ENV['PASSWORD'];
+$boite_mail_reception = $_ENV['MAILPERSO'];
 
 //Vérification Php
 //initialisation d'une variable réponse
@@ -50,23 +50,24 @@ if($reponse){
 
     try {
         //Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        $mail->SMTPDebug = 0;                                   //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = 'smtp.laposte.net';                     //Set the SMTP server to send through
+        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = $username;                               //SMTP username
-        $mail->Password   = $password;                               //SMTP password
+        $mail->Username   = $gmail;                               //SMTP username
+        $mail->Password   = $gmail_password;                               //SMTP password
         $mail->SMTPSecure = 'ssl';                                  //Enable implicit TLS encryption
-        $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-    
+        $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
         //Recipients
-        $mail->setFrom('p.lopez2000@laposte.net');
-        $mail->addAddress($email);                                  //Add a recipient
+        $mail->setFrom($gmail, 'Mon PortFolio');
+        $mail->addAddress($boite_mail_reception);                                  //Add a recipient
     
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Mail envoyé depuis mon Portfolio';
-        $mail->Body    = '<p>Message envoyé depuis mon Portfolio</p>
+        $mail->Subject = 'Mail envoye depuis mon Portfolio';
+        $mail->Body    = '<p>Message envoye depuis mon Portfolio</p>
+            <p></p>
             <p><b>Nom: </b>' . $name . ' </p>
             <p><b>Email : </b>' . $email . '</p>
             <b>Message : </b>' . $textForm . '</p>';
@@ -79,31 +80,6 @@ if($reponse){
         $reponse = false;
         echo json_encode($reponse);
     }
-
-    // $name = htmlspecialchars($_POST['name']);
-    // $email = htmlspecialchars($_POST['email']);
-    // $textForm = htmlspecialchars($_POST['text_form']);
-    // $toEmail = "p.lopez2000@laposte.net";
-
-    // $expediteur = $name . " <" . $email . '>';
-
-    // $header  = 'MIME-Version: 1.0' . "\r\n";
-    // $header .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-    // $header .= 'From: Portfolio' . "\r\n";
-    // $header .= 'Reply-to: ' . $expediteur ;
-    // $object = 'Portfolio contact';
-    // $message = '<p>Message envoyé depuis mon Portfolio</p>
-    // <p><b>Nom: </b>' . $name . ' </p>
-    // <p><b>Email : </b>' . $email . '</p>
-    // <b>Message : </b>' . $textForm . '</p>';
-
-    // //Si tout est bon on envoit le mail + renvoie true a notre js sinon false
-    // if(mail($toEmail,$object,$message,$header)){
-    //     echo json_encode($reponse);
-    // } else {
-    //     $reponse = false;
-    //     echo json_encode($reponse);
-    // }
 
 } else {
     echo json_encode($reponse);
