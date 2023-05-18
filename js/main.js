@@ -106,6 +106,8 @@ const arrow = document.querySelector("#arrow")
 const linkBaume = document.querySelectorAll('.link_baume');
 const linkBaumeAdmin = document.querySelectorAll('.link_baume_admin');
 const linkHoneyLance = document.querySelectorAll('.link_honeylance');
+const linkTaxi = document.querySelectorAll('.link_taxi');
+const linkFilm = document.querySelectorAll('.link_film');
 const linkShifumi = document.querySelectorAll('.link_shifumi');
 const linkBash = document.querySelectorAll('.link_bash');
 
@@ -722,6 +724,20 @@ linkBaumeAdmin.forEach(link => {
 linkHoneyLance.forEach(link => {
   link.addEventListener('click', ()=>{
     window.open('https://honeylance.elwindria.com/', '_blank');
+  })
+});
+
+// Link vers Taxi
+linkTaxi.forEach(link => {
+  link.addEventListener('click', ()=>{
+    window.open('https://taxi-de-la-planche.elwindria.com/', '_blank');
+  })
+});
+
+// Link vers Film
+linkFilm.forEach(link => {
+  link.addEventListener('click', ()=>{
+    window.open('https://film.elwindria.com/', '_blank');
   })
 });
 
