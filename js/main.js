@@ -668,7 +668,7 @@ function resetContact(indexNewPage){
 
   setTimeout(() => {
     allPContact.forEach(p => {
-      p.style.transform = "translateY(500%)";
+      p.style.transform = "translateY(700%)";
     });
   }, 300);
 
