@@ -22,19 +22,19 @@ $boite_mail_reception = $_ENV['MAILPERSO'];
 $reponse = true;
 
 //Vérification input Name
-if(!isset($_POST['name']) && empty($_POST['name'])){
+if(!isset($_POST['name']) || empty($_POST['name'])){
     $reponse .= " inputNameVide";
 }
 
 //Vérification input Email
-if(!isset($_POST['email']) && empty($_POST['email'])){
+if(!isset($_POST['email']) || empty($_POST['email'])){
     $reponse .= " inputEmailVide";
 } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
     $reponse .= " inputEmailNonValide";
 }
 
 //Vérification input textForm
-if(!isset($_POST['text_form']) && empty($_POST['text_form'])){
+if(!isset($_POST['text_form']) || empty($_POST['text_form'])){
     $reponse .= " inputTextFormVide";
 }
 
