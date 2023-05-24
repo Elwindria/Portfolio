@@ -863,8 +863,6 @@ function createAjaxForFormToEmail(){
   //Je récupère le résultat et l'exploite
   .then((result) => {
 
-    console.log(result);
-
     if(result === true){
 
       spanConfirm.style.color= "#1BBA02"
