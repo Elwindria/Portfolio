@@ -835,15 +835,21 @@ const form = document.querySelector('#form');
 const inputName = document.querySelector('#name');
 const inputEmail = document.querySelector('#email');
 const inputTextForm = document.querySelector('#text_form');
+const inputSubmit = document.querySelector("#submit");
+
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 const errorName = document.querySelector('#error_name');
 const errorEmail = document.querySelector('#error_email');
 const errorTextForm = document.querySelector('#error_text_form');
 const spanConfirm = document.querySelector('#confirm');
 
-form.addEventListener('submit', function(e){
+submit.addEventListener('click', function(e){
   //empeche le rafraichissement de la page
   e.preventDefault();
+
+  //Reset des message d'error
+  resetError();
 
   //Lance la vérification JS du Form et de ses inputs
   checkValidityForm();
@@ -869,9 +875,12 @@ function checkValidityForm(){
     errorEmail.textContent = "Le champ est obligatoire.";
     validate = false;
   } else if(inputEmail.validity.typeMismatch){
-    errorEmail.textContent = "Le champ n'est pas valide";
+    errorEmail.textContent = "Le champ mail n'est pas valide";
     validate = false;
-  }
+  } else if(!emailRegex.test(inputEmail.value)){
+    errorEmail.textContent = "Le champ mail n'est pas valide";
+    validate = false;
+}
 
   //Vérification de l'input TextForm
   if(inputTextForm.validity.valueMissing){
@@ -909,8 +918,11 @@ function createAjaxForFormToEmail(){
       spanConfirm.style.color= "#1BBA02"
       spanConfirm.textContent = "Votre message à bien été transmis, merci beaucoup";
 
-      //Reset des inputs
-      resetAllInput();
+      //Reset des error
+      resetError();
+
+      //Reset du Form
+      form.reset();
 
     } else if(result === false){
 
@@ -932,9 +944,7 @@ function createAjaxForFormToEmail(){
 
 
 //reset des inputs
-function resetAllInput(){
-
-  form.reset();
+function resetError(){
 
   errorName.textContent = " ";
   errorEmail.textContent = " ";
