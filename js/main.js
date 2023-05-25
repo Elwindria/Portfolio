@@ -211,6 +211,47 @@ function reset(indexNewPage){
   });
 }
 
+// Link special de la page présentation start
+
+//J'ai des liens dans ma page présentation qui renvoit à des pages de mon portfolio. Hors c'est toujours ma barre de nav qui gère...
+//Donc je suis obligé de faire des fonctions spéciales pour activer quand même les pages.
+
+// All const des link présentation
+const linkCompetence = document.querySelector("#link_competence");
+const linkRealisation = document.querySelector("#link_realisation");
+
+linkRealisation.addEventListener('click', function(){
+
+  let indexNewPage = "2";
+  blockSpam = "actif";
+
+  // On reset alors la page active, donc on lance l'annimation de sortie
+  reset(indexNewPage);
+
+  //On rénialise après 2s le blockSpam
+  setTimeout(() => {
+    blockSpam = "none";
+  }, 2000);
+
+});
+
+linkCompetence.addEventListener('click', function(){
+
+  let indexNewPage = "3";
+  blockSpam = "actif";
+
+  // On reset alors la page active, donc on lance l'annimation de sortie
+  reset(indexNewPage);
+
+  //On rénialise après 2s le blockSpam
+  setTimeout(() => {
+    blockSpam = "none";
+  }, 2000);
+
+});
+
+// Link special de la page présentation stop
+
 // Naviguation avec la barre de Nav - Reset - synchronisation - END
 //=======================================================
 // Toutes les apparitions START ! 
