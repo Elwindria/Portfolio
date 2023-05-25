@@ -287,20 +287,15 @@ li{
 }
 
 .achievement_left{
-    opacity: 0;
-    transition: all 1.2s ease-in-out;
-    transform: translateY(70%);
+    transition: all 1.5s ease-in-out;
+    transform: translateY(110%);
 }
 
 .achievement_right{
-    opacity:0;
-    transition: all 1.2s ease-in-out;
-    transform: translateY(-60%);
+    transition: all 1.5s ease-in-out;
+    transform: translateY(-120%);
 }
-.show_achievement{
-    opacity: 1;
-    transform: translateY(0%)
-}
+
 h4{
     color: #FBFBFB;
     font-size: 2rem;

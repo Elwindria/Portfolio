@@ -4,18 +4,14 @@
 let scene, camera, renderer, stars, starGeo;
 
 function init() {
+
   //nouvelle scene avec la couleur du fond
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x040d20);
+  scene.background = new THREE.Color( 0x040D20 );
 
-  camera = new THREE.PerspectiveCamera(
-    60,
-    window.innerWidth / window.innerHeight,
-    1,
-    1000
-  );
+  camera = new THREE.PerspectiveCamera(60,window.innerWidth / window.innerHeight, 1, 1000);
   camera.position.z = 1;
-  camera.rotation.x = Math.PI / 2;
+  camera.rotation.x = Math.PI/2;
 
   renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -23,7 +19,7 @@ function init() {
 
   //création d'une géometry avec 2000 coins
   starGeo = new THREE.Geometry();
-  for (let i = 0; i < 2000; i++) {
+  for(let i=0;i<2000;i++) {
     star = new THREE.Vector3(
       Math.random() * 600 - 300,
       Math.random() * 600 - 300,
@@ -35,30 +31,31 @@ function init() {
   }
 
   //ajout à chaque coin, la texture star.png
-  let sprite = new THREE.TextureLoader().load("images/star.png");
+  let sprite = new THREE.TextureLoader().load( 'images/star.png' );
   let starMaterial = new THREE.PointsMaterial({
     //couleur du png + taille
     color: 0xfbfbfb,
-    size: 0.6,
-    map: sprite,
+    size: .6,
+    map: sprite
   });
 
-  stars = new THREE.Points(starGeo, starMaterial);
+  stars = new THREE.Points(starGeo,starMaterial);
   //ajout du tout à la scène
   scene.add(stars);
 
   window.addEventListener("resize", onWindowResize, false);
 
-  animate();
+  animate(); 
 }
 function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-}
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
 function animate() {
+
   //On fait tourner notre forme géométrique et ses 2000coins/stars
-  stars.rotation.y += 0.0003;
+  stars.rotation.y +=0.0003;
 
   renderer.render(scene, camera);
   // chargement en boucle de la fonction animate
@@ -74,94 +71,91 @@ init();
 // All Const Start
 
 //All Const - Pour chaque page
-const allSection = ["home", "presentation", "achievement", "skill", "contact"];
+const allSection = ['home', 'presentation', 'achievement', 'skill', 'contact'];
 const allFullVh = document.querySelectorAll(".fullVh");
 let blockSpam = "none";
 
 //Const NavBar
-const allBtnNavBar = document.querySelectorAll(".btn_nav_bar");
-const navBar = document.querySelector("#navBar");
-const allTraitNavBar = document.querySelectorAll(".trait_nav_bar");
-const allLiBtnNavBar = document.querySelectorAll(".li_btn_nav_bar");
-const allLiBtnNavBarSlow = document.querySelectorAll(".li_btn_nav_bar_slow");
+const allBtnNavBar = document.querySelectorAll('.btn_nav_bar');
+const navBar = document.querySelector('#navBar');
+const allTraitNavBar = document.querySelectorAll('.trait_nav_bar');
+const allLiBtnNavBar = document.querySelectorAll('.li_btn_nav_bar');
+const allLiBtnNavBarSlow = document.querySelectorAll('.li_btn_nav_bar_slow');
 
 //Const pour Home
 const homePage = document.querySelector("#home");
-const traitHome = document.querySelector("#trait_home");
-const titleHome = document.querySelectorAll(".title_home");
-const titleHome2 = document.querySelector("#title_home_2");
+const traitHome = document.querySelector('#trait_home');
+const titleHome = document.querySelectorAll('.title_home');
+const titleHome2 = document.querySelector('#title_home_2');
 
-//Const pour presentation
+//Const pour presentation 
 const presentationPage = document.querySelector("#presentation");
-const allPPresentation = document.querySelectorAll(".p_presentation");
-const imagePresentation = document.querySelector("#img_presentation");
-const pageTitlePresentation = document.querySelector(
-  "#page_title_presentation"
-);
-const traitPresentationLeft = document.querySelector(
-  "#trait_presentation_left"
-);
-const traitPresentationRight = document.querySelector(
-  "#trait_presentation_right"
-);
+const allPPresentation = document.querySelectorAll('.p_presentation');
+const imagePresentation = document.querySelector('#img_presentation');
+const pageTitlePresentation = document.querySelector('#page_title_presentation');
+const traitPresentationLeft = document.querySelector('#trait_presentation_left');
+const traitPresentationRight = document.querySelector('#trait_presentation_right');
 
-//Const pour achievement
+//Const pour achievement 
 const achievementPage = document.querySelector("#achievement");
-const pageTitleAchievement = document.querySelector("#page_title_achievement");
+const pageTitleAchievement = document.querySelector('#page_title_achievement');
 const allAchievementRight = document.querySelectorAll(".achievement_right");
 const allAchievementLeft = document.querySelectorAll(".achievement_left");
-const arrow = document.querySelector("#arrow");
+const arrow = document.querySelector("#arrow")
 
-const linkBaume = document.querySelectorAll(".link_baume");
-const linkBaumeAdmin = document.querySelectorAll(".link_baume_admin");
-const linkHoneyLance = document.querySelectorAll(".link_honeylance");
-const linkTaxi = document.querySelectorAll(".link_taxi");
-const linkFilm = document.querySelectorAll(".link_film");
-const linkShifumi = document.querySelectorAll(".link_shifumi");
-const linkBash = document.querySelectorAll(".link_bash");
+const linkBaume = document.querySelectorAll('.link_baume');
+const linkBaumeAdmin = document.querySelectorAll('.link_baume_admin');
+const linkHoneyLance = document.querySelectorAll('.link_honeylance');
+const linkTaxi = document.querySelectorAll('.link_taxi');
+const linkFilm = document.querySelectorAll('.link_film');
+const linkShifumi = document.querySelectorAll('.link_shifumi');
+const linkBash = document.querySelectorAll('.link_bash');
 
 //Const pour Skill
-const skillPage = document.querySelector("#skill");
-const pageTitleSkill = document.querySelector("#page_title_skill");
-const allTraitDescription = document.querySelectorAll(".trait_description");
-const allPSkill = document.querySelectorAll(".p_skill");
-const allSpanDesc = document.querySelectorAll(".span_desc");
-const allLogoSkill = document.querySelectorAll(".logo_skill");
-const Iam = document.querySelector("#Iam");
+const skillPage = document.querySelector('#skill');
+const pageTitleSkill = document.querySelector('#page_title_skill');
+const allTraitDescription = document.querySelectorAll('.trait_description');
+const allPSkill = document.querySelectorAll('.p_skill');
+const allSpanDesc = document.querySelectorAll('.span_desc');
+const allLogoSkill = document.querySelectorAll('.logo_skill');
+const Iam = document.querySelector('#Iam');
 
 //Const pour contact
-const contactPage = document.querySelector("#contact");
-const pageTitleContact = document.querySelector("#page_title_contact");
-const allPContact = document.querySelectorAll(".p_contact");
-const traitContactLeft = document.querySelector("#trait_contact_left");
-const allInput = document.querySelectorAll(".input");
-const submit = document.querySelector("#submit");
-const allLogoSocial = document.querySelectorAll(".logo_social");
-const allTraitContact = document.querySelectorAll(".trait_contact");
-const logoSocial1 = document.querySelector("#logo_social_1");
-const logoSocial2 = document.querySelector("#logo_social_2");
-const logoSocial3 = document.querySelector("#logo_social_3");
-const logoSocial4 = document.querySelector("#logo_social_4");
-const placeholder = ["Nom :", "Email :", "Votre message..."];
+const contactPage = document.querySelector('#contact');
+const pageTitleContact = document.querySelector('#page_title_contact');
+const allPContact = document.querySelectorAll('.p_contact');
+const traitContactLeft = document.querySelector('#trait_contact_left');
+const allInput = document.querySelectorAll('.input');
+const submit = document.querySelector('#submit');
+const allLogoSocial = document.querySelectorAll('.logo_social');
+const allTraitContact = document.querySelectorAll('.trait_contact');
+const logoSocial1 = document.querySelector('#logo_social_1');
+const logoSocial2 = document.querySelector('#logo_social_2');
+const logoSocial3 = document.querySelector('#logo_social_3');
+const logoSocial4 = document.querySelector('#logo_social_4');
+const placeholder = ["Nom :","Email :","Votre message..."];
 
-// All Const Stop
+// All Const Stop 
 //=======================================================
 // Naviguation avec la barre de Nav - Reset - synchronisation - START
 
 //quand on click sur un des btn de la barre de nav, on reset pour switch
 allBtnNavBar.forEach((btn, index) => {
-  btn.addEventListener("click", function () {
+  btn.addEventListener('click', function(){
+
     let indexNewPage = index;
 
     // Ajout d'une protection anti-spam
-    if (blockSpam !== "actif") {
+    if(blockSpam !== "actif"){
+
       // On vérifie déjà si la demande est pour la page active (inutile donc de reset elle est déjà là)
-      if (allFullVh[index].dataset.pageActive !== "active") {
+      if (allFullVh[index].dataset.pageActive !== 'active'){
+
         // On initialise le block spam pour toute la durée du reset/chargement
         blockSpam = "actif";
 
         //si la page demandé est home, on reset aussi la navBar
-        if (allSection[index] == "home") {
+        if(allSection[index] == "home"){
           resetNavBar();
         }
         // On reset alors la page active, donc on lance l'annimation de sortie
@@ -173,43 +167,46 @@ allBtnNavBar.forEach((btn, index) => {
         }, 2000);
       }
     }
-  });
+  })
 });
 
 // lancement de l'apparition de la nouvelle bonne page
-function newPageActive(indexNewPage) {
-  if (allSection[indexNewPage] == "home") {
+function newPageActive(indexNewPage){
+
+  if (allSection[indexNewPage] == 'home'){
     spawnHome();
-  } else if (allSection[indexNewPage] == "presentation") {
+  } else if (allSection[indexNewPage] == 'presentation'){
     spawnPresentation();
-  } else if (allSection[indexNewPage] == "achievement") {
+  } else if (allSection[indexNewPage] == 'achievement'){
     spawnAchievement();
-  } else if (allSection[indexNewPage] == "skill") {
-    spawnSkill();
-  } else if (allSection[indexNewPage] == "contact") {
-    spawnContact();
+  } else if (allSection[indexNewPage] == 'skill'){
+    spawnSkill()
+  } else if (allSection[indexNewPage] == 'contact'){
+    spawnContact()
   }
 }
 
-function reset(indexNewPage) {
-  // Reset de la page active
+function reset(indexNewPage){
+
+  // Reset de la page active  
   allFullVh.forEach((fullVh, index) => {
+
     //Si c'est la page active, on lance son reset
-    if (fullVh.dataset.pageActive === "active") {
-      if (allSection[index] == "home") {
+    if (fullVh.dataset.pageActive === 'active'){
+      if (allSection[index] == 'home'){
         resetHome(indexNewPage);
-      } else if (allSection[index] == "presentation") {
+      } else if (allSection[index] == 'presentation'){
         resetPresentation(indexNewPage);
-      } else if (allSection[index] == "achievement") {
+      } else if (allSection[index] == 'achievement'){
         resetAchievement(indexNewPage);
-      } else if (allSection[index] == "skill") {
-        resetSkill(indexNewPage);
-      } else if (allSection[index] == "contact") {
-        resetContact(indexNewPage);
+      } else if (allSection[index] == 'skill'){
+        resetSkill(indexNewPage)
+      } else if (allSection[index] == 'contact'){
+        resetContact(indexNewPage)
       }
 
-      //le reset est fait, on dit que la page n'est plus active
-      fullVh.dataset.pageActive = "false";
+    //le reset est fait, on dit que la page n'est plus active
+    fullVh.dataset.pageActive = "false";
     }
   });
 }
@@ -223,7 +220,8 @@ function reset(indexNewPage) {
 const linkCompetence = document.querySelector("#link_competence");
 const linkRealisation = document.querySelector("#link_realisation");
 
-linkRealisation.addEventListener("click", function () {
+linkRealisation.addEventListener('click', function(){
+
   let indexNewPage = "2";
   blockSpam = "actif";
 
@@ -234,9 +232,11 @@ linkRealisation.addEventListener("click", function () {
   setTimeout(() => {
     blockSpam = "none";
   }, 2000);
+
 });
 
-linkCompetence.addEventListener("click", function () {
+linkCompetence.addEventListener('click', function(){
+
   let indexNewPage = "3";
   blockSpam = "actif";
 
@@ -247,53 +247,57 @@ linkCompetence.addEventListener("click", function () {
   setTimeout(() => {
     blockSpam = "none";
   }, 2000);
+
 });
 
 // Link special de la page présentation stop
 
 // Naviguation avec la barre de Nav - Reset - synchronisation - END
 //=======================================================
-// Toutes les apparitions START !
+// Toutes les apparitions START ! 
 
 // Une fois la page HTML chargé, on active la navBar + Home
-window.addEventListener("load", function () {
+window.addEventListener('load', function(){
   spawnNavBar();
-  spawnHome();
-});
+  spawnHome()
+})
+
 
 // Apparition de la NavBar
-function spawnNavBar() {
+function spawnNavBar(){
+
   // les multiples traits
-  if (window.innerWidth > 768) {
-    allTraitNavBar.forEach((trait) => {
-      trait.style.height = "3.125rem";
+  if (window.innerWidth > 768){
+    allTraitNavBar.forEach(trait => {
+      trait.style.height = "3.125rem"; 
     });
   } else {
-    allTraitNavBar.forEach((trait) => {
-      trait.style.height = "4.5rem";
+    allTraitNavBar.forEach(trait => {
+      trait.style.height = "4.5rem"; 
     });
   }
 
   //les boutons (a)
   setTimeout(() => {
-    allLiBtnNavBar.forEach((btn) => {
+    allLiBtnNavBar.forEach(btn => {
       btn.style.transform = "translateY(0rem)";
       btn.style.opacity = "1";
     });
-    allLiBtnNavBarSlow.forEach((btn) => {
+    allLiBtnNavBarSlow.forEach(btn => {
       btn.style.transform = "translateY(0rem)";
       btn.style.opacity = "1";
-    });
+    })
   }, 100);
 }
 
 //Slide de la navBar
-function navBarSlide() {
-  navBar.style.right = "-50rem";
+function navBarSlide(){
+  navBar.style.right = '-50rem';
 }
 
 // Apparition de HOME
-function spawnHome() {
+function spawnHome(){
+
   // On rend actif la page home
   homePage.style.display = "flex";
   // On la marque comme page active
@@ -306,17 +310,20 @@ function spawnHome() {
 
   //les deux titres
   setTimeout(() => {
-    titleHome.forEach((title) => {
-      title.style.transform = "translateY(0rem)";
+    titleHome.forEach(title => {
+      title.style.transform = 'translateY(0rem)';
       title.style.opacity = "1";
     });
-    titleHome2.style.transform = "translateY(0rem)";
+    titleHome2.style.transform = 'translateY(0rem)';
     titleHome2.style.opacity = "1";
   }, 1000);
 }
 
+
+
 // apparition de PRESENTATION
-function spawnPresentation() {
+function spawnPresentation(){
+
   // On rend actif la page
   presentationPage.style.display = "flex";
   // On la marque comme page active
@@ -324,29 +331,21 @@ function spawnPresentation() {
 
   setTimeout(() => {
     pageTitlePresentation.style.opacity = "1";
-    traitPresentationLeft.style.width = "100%";
+    traitPresentationLeft.style.width = '100%';
     traitPresentationRight.style.height = "100%";
   }, 100);
 
   setTimeout(() => {
-    allPPresentation.forEach((p) => {
+    allPPresentation.forEach(p => {
       p.style.transform = "translateY(0%)";
     });
-    imagePresentation.style.transform = "translateX(0)";
+    imagePresentation.style.transform = 'translateX(0)';
   }, 900);
 }
 
 // Apparition de Achievement
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    entry.target.classList.toggle("show_achievement", entry.isIntersecting);
-    if(entry.isIntersecting) observer.unobserve(entry.target)
-  });
-}, {
-  rootMargin: "-85px",
-});
+function spawnAchievement(){
 
-function spawnAchievement() {
   // On rend actif la page
   achievementPage.style.display = "flex";
   // On la marque comme page active
@@ -358,24 +357,19 @@ function spawnAchievement() {
   }, 50);
 
   setTimeout(() => {
-    allAchievementLeft.forEach((achievementRight) => {
-      observer.observe(achievementRight);
-    });
-    // allAchievementRight.forEach((right) => {
-    //   right.style.transform = "translateY(0%)";
-    // });
-    allAchievementRight.forEach((achievementRight) => {
-      observer.observe(achievementRight);
-    });
-    
+    allAchievementLeft.forEach(left =>{
+      left.style.transform = "translateY(0%)";
+    })
+    allAchievementRight.forEach(right =>{
+      right.style.transform = "translateY(0%)";
+    })
     // arrow.classList.add('bounce');
   }, 700);
 }
 
-
-
 // Apparition de Skill
-function spawnSkill() {
+function spawnSkill(){
+
   // On rend actif la page
   skillPage.style.display = "flex";
   // On la marque comme page active
@@ -383,9 +377,9 @@ function spawnSkill() {
 
   setTimeout(() => {
     // Les traits
-    allTraitDescription.forEach((trait) => {
+    allTraitDescription.forEach(trait =>{
       trait.style.height = "100%";
-    });
+    })
   }, 50);
 
   //Le "je suis"
@@ -394,30 +388,34 @@ function spawnSkill() {
   }, 350);
 
   setTimeout(() => {
-    allPSkill.forEach((skill) => {
+    allPSkill.forEach(skill => {
       skill.style.transform = "translateX(0)";
     });
 
     //le titre
     pageTitleSkill.style.opacity = "1";
+
   }, 600);
 
   //Les logo
   setTimeout(() => {
-    let p = 0;
 
-    allLogoSkill.forEach((logo) => {
+    let p=0;
+
+    allLogoSkill.forEach(logo => {
       p += 100;
 
       setTimeout(() => {
         logo.style.transform = "translateY(0)";
       }, p);
-    });
+    });  
+
   }, 700);
 }
 
 // Apparition de Contact
-function spawnContact() {
+function spawnContact(){
+
   // On rend actif la page
   contactPage.style.display = "flex";
   // On la marque comme page active
@@ -427,23 +425,23 @@ function spawnContact() {
     //apparition titre
     pageTitleContact.style.opacity = "1";
 
-    allTraitContact.forEach((trait) => {
-      trait.style.height = "100%";
+    allTraitContact.forEach(trait => {
+      trait.style.height = "100%"
     });
-    allInput.forEach((input) => {
+    allInput.forEach(input => {
       input.style.width = "31rem";
     });
     traitContactLeft.style.width = "100%";
   }, 50);
 
   setTimeout(() => {
-    for (let h = 0; h < 3; h++) {
-      allInput[h].placeholder = placeholder[h];
+    for(let h=0;h<3;h++){
+      allInput[h].placeholder= placeholder[h];
     }
   }, 400);
 
   setTimeout(() => {
-    allPContact.forEach((p) => {
+    allPContact.forEach(p => {
       p.style.transform = "translateY(0%)";
     });
     logoSocial1.style.transform = "translateY(0%)";
@@ -474,41 +472,42 @@ function spawnContact() {
 // Reset de chaque Page Active - Display none - START
 
 //Reset de NavBar
-function resetNavBar() {
+function resetNavBar(){
+
   //On change la vitesse de reset en plus rapide que la vitesse pour spawn
 
   //les boutons (a)
-  allLiBtnNavBar.forEach((btn) => {
+  allLiBtnNavBar.forEach(btn => {
     btn.style.transition = "all .7s ease-in-out";
     btn.style.transform = "translateY(-130%)";
     btn.style.opacity = "0";
   });
-  allLiBtnNavBarSlow.forEach((btn) => {
+  allLiBtnNavBarSlow.forEach(btn => {
     btn.style.transition = "all .5s ease-in-out";
     btn.style.transform = "translateY(-130%)";
     btn.style.opacity = "0";
-  });
+  })
 
   // les multiples traits
-  allTraitNavBar.forEach((trait) => {
+  allTraitNavBar.forEach(trait => {
     trait.style.transition = "all .7s ease-in-out";
-    trait.style.height = "0rem";
+    trait.style.height = "0rem"; 
   });
 
   setTimeout(() => {
     navBar.style.transition = "all .1s ease-in-out";
-    navBar.style.right = "0rem";
+    navBar.style.right = '0rem';
   }, 900);
 
   setTimeout(() => {
     //on reset la vitesse des transition avant de relancer l'anim du spawn
     navBar.style.transition = "all 1.5s ease-in-out";
-    allLiBtnNavBar.forEach((btn) => {
+    allLiBtnNavBar.forEach(btn => {
       btn.style.transition = "all 1.5s ease-in-out";
-    });
-    allLiBtnNavBarSlow.forEach((btn) => {
+    })
+    allLiBtnNavBarSlow.forEach(btn => {
       btn.style.transition = "all 1.1s ease-in-out";
-    });
+    })
 
     // Spawn de la NavBar
     spawnNavBar();
@@ -516,22 +515,24 @@ function resetNavBar() {
 }
 
 //Reset de HOME
-function resetHome(indexNewPage) {
-  if (window.innerWidth > 768) {
+function resetHome(indexNewPage){
+
+  if(window.innerWidth > 768){
     //On déplace aussi la navBar car c'est plus home la page Active
     navBarSlide();
   }
 
+
   //les deux titres
-  titleHome.forEach((title) => {
+  titleHome.forEach(title => {
     title.style.transition = "all .7s ease-in-out";
-    title.style.transform = "translateY(130%)";
+    title.style.transform = 'translateY(130%)';
     title.style.opacity = "0";
   });
   titleHome2.style.transition = "all .7s ease-in-out";
-  titleHome2.style.transform = "translateY(-130%)";
+  titleHome2.style.transform = 'translateY(-130%)';
   titleHome2.style.opacity = "0";
-
+    
   //barre du milieu
   setTimeout(() => {
     traitHome.style.transition = "all .7s ease-in-out";
@@ -539,10 +540,11 @@ function resetHome(indexNewPage) {
   }, 100);
 
   setTimeout(() => {
+    
     //reset des temps d'animation
     traitHome.style.transition = "all 1.5s ease-in-out";
     titleHome2.style.transition = "all 1.5s ease-in-out";
-    titleHome.forEach((title) => {
+    titleHome.forEach(title => {
       title.style.transition = "all 1.5s ease-in-out";
     });
 
@@ -553,14 +555,15 @@ function resetHome(indexNewPage) {
 }
 
 // reset de presentation
-function resetPresentation(indexNewPage) {
+function resetPresentation(indexNewPage){
+
   setTimeout(() => {
-    allPPresentation.forEach((p) => {
+    allPPresentation.forEach(p => {
       p.style.transition = "all .7s ease-in-out";
       p.style.transform = "translateY(300%)";
     });
     imagePresentation.style.transition = "all .7s ease-in-out";
-    imagePresentation.style.transform = "translateX(150%)";
+    imagePresentation.style.transform = 'translateX(150%)';
 
     pageTitlePresentation.style.opacity = "0";
   }, 50);
@@ -569,17 +572,18 @@ function resetPresentation(indexNewPage) {
     traitPresentationLeft.style.transition = "all .7s ease-in-out";
     traitPresentationRight.style.transition = "all .7s ease-in-out";
 
-    traitPresentationLeft.style.width = "0%";
+    traitPresentationLeft.style.width = '0%';
     traitPresentationRight.style.height = "0%";
   }, 250);
 
   setTimeout(() => {
+
     traitPresentationLeft.style.transition = "all 1.5s ease-in-out";
     traitPresentationRight.style.transition = "all 1.5s ease-in-out";
     imagePresentation.style.transition = "all 1.5s ease-in-out";
-    allPPresentation.forEach((p) => {
+    allPPresentation.forEach(p =>{
       p.style.transition = "all 1.5s ease-in-out";
-    });
+    })
 
     //reset fini, on lance la nouvelle page + display none
     presentationPage.style.display = "none";
@@ -588,7 +592,8 @@ function resetPresentation(indexNewPage) {
 }
 
 //reset Achievement
-function resetAchievement(indexNewPage) {
+function resetAchievement(indexNewPage){
+
   setTimeout(() => {
     pageTitleAchievement.style.transition = "all .7s ease-in-out";
     pageTitleAchievement.style.opacity = "0";
@@ -596,90 +601,96 @@ function resetAchievement(indexNewPage) {
   }, 50);
 
   setTimeout(() => {
-    allAchievementLeft.forEach((left) => {
+    allAchievementLeft.forEach(left =>{
       left.style.transition = "all .7s ease-in-out";
       left.style.transform = "translateY(110%)";
-    });
-    allAchievementRight.forEach((right) => {
+    })
+    allAchievementRight.forEach(right =>{
       right.style.transition = "all .7s ease-in-out";
       right.style.transform = "translateY(-120%)";
-    });
+    })
   }, 50);
 
   setTimeout(() => {
-    pageTitleAchievement.style.transition = "all 1.5s ease-in-out";
 
-    allAchievementLeft.forEach((left) => {
-      left.style.transition = "all 1.5s ease-in-out";
-    });
+  pageTitleAchievement.style.transition = "all 1.5s ease-in-out";
 
-    allAchievementRight.forEach((right) => {
-      right.style.transition = "all 1.5s ease-in-out";
-    });
+  allAchievementLeft.forEach(left =>{
+    left.style.transition = "all 1.5s ease-in-out";
+  });
 
-    //reset de la fleche qui bounce
-    // arrow.classList.remove('bounce');
+  allAchievementRight.forEach(right =>{
+    right.style.transition = "all 1.5s ease-in-out";
+  })
 
-    //reset fini, on lance la nouvelle page + display none
-    achievementPage.style.display = "none";
-    newPageActive(indexNewPage);
+  //reset de la fleche qui bounce
+  // arrow.classList.remove('bounce');
+
+  //reset fini, on lance la nouvelle page + display none
+  achievementPage.style.display = "none";
+  newPageActive(indexNewPage);
   }, 1000);
 }
 
 //reset de Skill
-function resetSkill(indexNewPage) {
+function resetSkill(indexNewPage){
+
   setTimeout(() => {
-    //Les logo
-    allLogoSkill.forEach((logo) => {
+
+    //Les logo 
+    allLogoSkill.forEach(logo => {
       logo.style.transition = "all .7s ease-in-out";
-      logo.style.transform = "translateY(120%)";
-    });
+        logo.style.transform = "translateY(120%)";
+    });  
 
     //le titre
     pageTitleSkill.style.transition = "all .7s ease-in-out";
     pageTitleSkill.style.opacity = "0";
 
-    allPSkill.forEach((skill) => {
+    allPSkill.forEach(skill => {
       skill.style.transition = "all .7s ease-in-out";
       skill.style.transform = "translateX(-120%)";
     });
 
     Iam.style.transition = "all .7s ease-in-out";
     Iam.style.transform = "translateX(-120%)";
+
   }, 50);
 
   setTimeout(() => {
     // Les traits
-    allTraitDescription.forEach((trait) => {
+    allTraitDescription.forEach(trait =>{
       trait.style.transition = "all .7s ease-in-out";
       trait.style.height = "0%";
-    });
+    })
   }, 350);
 
   setTimeout(() => {
-    //reset de tous les timers
-    allLogoSkill.forEach((logo) => {
-      logo.style.transition = "all 1.5s ease-in-out";
-    });
 
-    Iam.style.transition = "all 1.5s ease-in-out";
-    pageTitleSkill.style.transition = "all 1.5s ease-in-out";
+  //reset de tous les timers
+  allLogoSkill.forEach(logo => {
+    logo.style.transition = "all 1.5s ease-in-out";
+  });
 
-    allPSkill.forEach((skill) => {
-      skill.style.transition = "all 1.5s ease-in-out";
-    });
+  Iam.style.transition = "all 1.5s ease-in-out";
+  pageTitleSkill.style.transition = "all 1.5s ease-in-out";
 
-    allTraitDescription.forEach((trait) => {
-      trait.style.transition = "all 1.5s ease-in-out";
-    });
+  allPSkill.forEach(skill => {
+    skill.style.transition = "all 1.5s ease-in-out";
+  });
 
-    //reset fini, on lance la nouvelle page + display none
-    skillPage.style.display = "none";
-    newPageActive(indexNewPage);
+  allTraitDescription.forEach(trait =>{
+    trait.style.transition = "all 1.5s ease-in-out";
+  });
+
+  //reset fini, on lance la nouvelle page + display none
+  skillPage.style.display = "none";
+  newPageActive(indexNewPage);
   }, 1000);
 }
 
-function resetContact(indexNewPage) {
+function resetContact(indexNewPage){
+
   submit.style.transform = "translateY(-200%)";
 
   setTimeout(() => {
@@ -699,16 +710,16 @@ function resetContact(indexNewPage) {
   }, 200);
 
   setTimeout(() => {
-    allPContact.forEach((p) => {
+    allPContact.forEach(p => {
       p.style.transform = "translateY(700%)";
     });
   }, 300);
 
   setTimeout(() => {
-    allTraitContact.forEach((trait) => {
-      trait.style.height = "0%";
+    allTraitContact.forEach(trait => {
+      trait.style.height = "0%"
     });
-    allInput.forEach((input) => {
+    allInput.forEach(input => {
       input.style.width = "0rem";
       input.placeholder = " ";
     });
@@ -717,85 +728,84 @@ function resetContact(indexNewPage) {
     traitContactLeft.style.transition = "all .7s ease-in-out";
     traitContactLeft.style.width = "0%";
   }, 350);
-
+  
   setTimeout(() => {
-    pageTitleContact.style.transition = "all 1.5s ease-in-out";
-    traitContactLeft.style.transition = "all 1.5s ease-in-out";
 
-    //reset fini, on lance la nouvelle page + display none
-    contactPage.style.display = "none";
-    newPageActive(indexNewPage);
+  pageTitleContact.style.transition = "all 1.5s ease-in-out";
+  traitContactLeft.style.transition = "all 1.5s ease-in-out";
+
+  //reset fini, on lance la nouvelle page + display none
+  contactPage.style.display = "none";
+  newPageActive(indexNewPage);
   }, 1050);
 }
 
 /* Reset End */
 /* =================================================== */
 /* ===================================================== */
-/* Hover + Redirection start */
+/* Hover + Redirection start */ 
 
 /* Achievement */
 
 // Link vers Baume.fr
-linkBaume.forEach((link) => {
-  link.addEventListener("click", () => {
-    window.open("https://baume-les-messieurs.elwindria.com/", "_blank");
-  });
+linkBaume.forEach(link => {
+  link.addEventListener('click', ()=>{
+    window.open('https://baume-les-messieurs.elwindria.com/', '_blank');
+  })  
 });
 
 // link vers Baume.fr/admin
-linkBaumeAdmin.forEach((link) => {
-  link.addEventListener("click", () => {
-    window.open(
-      "https://baume-les-messieurs.elwindria.com/admin.html",
-      "_blank"
-    );
-  });
+linkBaumeAdmin.forEach(link => {
+  link.addEventListener('click', ()=>{
+    window.open('https://baume-les-messieurs.elwindria.com/admin.html', '_blank');
+  })  
 });
 
 // Link vers HoneyLance
-linkHoneyLance.forEach((link) => {
-  link.addEventListener("click", () => {
-    window.open("https://honeylance.elwindria.com/", "_blank");
-  });
+linkHoneyLance.forEach(link => {
+  link.addEventListener('click', ()=>{
+    window.open('https://honeylance.elwindria.com/', '_blank');
+  })
 });
 
 // Link vers Taxi
-linkTaxi.forEach((link) => {
-  link.addEventListener("click", () => {
-    window.open("https://taxi-de-la-planche.elwindria.com/", "_blank");
-  });
+linkTaxi.forEach(link => {
+  link.addEventListener('click', ()=>{
+    window.open('https://taxi-de-la-planche.elwindria.com/', '_blank');
+  })
 });
 
 // Link vers Film
-linkFilm.forEach((link) => {
-  link.addEventListener("click", () => {
-    window.open("https://film.elwindria.com/", "_blank");
-  });
+linkFilm.forEach(link => {
+  link.addEventListener('click', ()=>{
+    window.open('https://film.elwindria.com/', '_blank');
+  })
 });
 
 // Link vers le Github Shifumi
-linkShifumi.forEach((link) => {
-  link.addEventListener("click", () => {
-    window.open("https://github.com/Elwindria/rock-paper-scissors", "_blank");
-  });
+linkShifumi.forEach(link => {
+  link.addEventListener('click', ()=>{
+    window.open('https://github.com/Elwindria/rock-paper-scissors', '_blank');
+  })  
 });
 
 // Link vers le Github Bash
-linkBash.forEach((link) => {
-  link.addEventListener("click", () => {
-    window.open("https://github.com/Elwindria/bash", "_blank");
-  });
+linkBash.forEach(link => {
+  link.addEventListener('click', ()=>{
+    window.open('https://github.com/Elwindria/bash', '_blank');
+  })  
 });
 
 /* Hover + Redirection end */
 //===============================
 /* Animation Arrow de Achievement Start + oberver */
 
-const callback = function (entries) {
+const callback = function( entries ) {
+
   let observedImg = entries[0];
 
-  if (!observedImg.isIntersecting) {
-    arrow.classList.remove("bounce");
+  if(!observedImg.isIntersecting){
+    arrow.classList.remove('bounce');
     arrow.style.cursor = "pointer";
     setTimeout(() => {
       arrow.style.transform = "rotate(180deg)";
@@ -803,35 +813,38 @@ const callback = function (entries) {
   } else {
     arrow.style.transform = "rotate(0deg)";
     setTimeout(() => {
-      arrow.classList.add("bounce");
-      arrow.style.cursor = "unset";
+      arrow.classList.add('bounce');
+      arrow.style.cursor = "unset"; 
     }, 700);
   }
-};
+}
+
+const observer = new IntersectionObserver(callback);
+observer.observe(pageTitleAchievement);
 
 //remonte en haut de la page au clic sur la fleche
-arrow.addEventListener("click", () => {
+arrow.addEventListener('click', ()=>{
   window.scroll(0, 0);
-});
+})
 
 /* Animation Arrow de Achievement Stop */
 /* Form to Email START */
 
 //All Const Form
-const form = document.querySelector("#form");
-const inputName = document.querySelector("#name");
-const inputEmail = document.querySelector("#email");
-const inputTextForm = document.querySelector("#text_form");
+const form = document.querySelector('#form');
+const inputName = document.querySelector('#name');
+const inputEmail = document.querySelector('#email');
+const inputTextForm = document.querySelector('#text_form');
 const inputSubmit = document.querySelector("#submit");
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-const errorName = document.querySelector("#error_name");
-const errorEmail = document.querySelector("#error_email");
-const errorTextForm = document.querySelector("#error_text_form");
-const spanConfirm = document.querySelector("#confirm");
+const errorName = document.querySelector('#error_name');
+const errorEmail = document.querySelector('#error_email');
+const errorTextForm = document.querySelector('#error_text_form');
+const spanConfirm = document.querySelector('#confirm');
 
-submit.addEventListener("click", function (e) {
+submit.addEventListener('click', function(e){
   //empeche le rafraichissement de la page
   e.preventDefault();
 
@@ -840,87 +853,99 @@ submit.addEventListener("click", function (e) {
 
   //Lance la vérification JS du Form et de ses inputs
   checkValidityForm();
-});
+})
 
 //Function vérification inputs du Form
-function checkValidityForm() {
+function checkValidityForm(){
+
   //initialisation d'une variable validate
   let validate = true;
 
   //Vérification de l'input Name
-  if (inputName.validity.valueMissing) {
+  if(inputName.validity.valueMissing){
     errorName.textContent = "Le champ est obligatoire.";
     validate = false;
-  } else if (inputName.validity.typeMismatch) {
+  } else if(inputName.validity.typeMismatch){
     errorName.textContent = "Le champ n'est pas valide";
     validate = false;
   }
 
   //Vérification de l'input Email
-  if (inputEmail.validity.valueMissing) {
+  if(inputEmail.validity.valueMissing){
     errorEmail.textContent = "Le champ est obligatoire.";
     validate = false;
-  } else if (inputEmail.validity.typeMismatch) {
+  } else if(inputEmail.validity.typeMismatch){
     errorEmail.textContent = "Le champ mail n'est pas valide";
     validate = false;
-  } else if (!emailRegex.test(inputEmail.value)) {
+  } else if(!emailRegex.test(inputEmail.value)){
     errorEmail.textContent = "Le champ mail n'est pas valide";
     validate = false;
-  }
+}
 
   //Vérification de l'input TextForm
-  if (inputTextForm.validity.valueMissing) {
+  if(inputTextForm.validity.valueMissing){
     errorTextForm.textContent = "Le champ est obligatoire.";
     validate = false;
-  } else if (inputTextForm.validity.typeMismatch) {
+  } else if(inputTextForm.validity.typeMismatch){
     errorTextForm.textContent = "Le champ n'est pas valide";
     validate = false;
   }
 
-  //Si validate = true alors par d'erreur donc on peut lancer la request Ajax
+  //Si validate = true alors par d'erreur donc on peut lancer la request Ajax 
 
-  if (validate) {
+  if(validate){
     createAjaxForFormToEmail();
   }
 }
 
-function createAjaxForFormToEmail() {
+function createAjaxForFormToEmail(){
+
   //Création d'un FormData pour récup les infos de notre Form
   const formData = new FormData(form);
 
   //J'envoie mon formData en méthod POST au fichier formToEmail.php
-  fetch("php/formToEmail.php", { method: "POST", body: formData })
-    //Je récupère ensuite la réponse de mon fichier php (en Json)
-    //Donc traduction =>
-    .then((response) => response.json())
+  fetch("php/formToEmail.php", { method: "POST", body: formData})
 
-    //Je récupère le résultat et l'exploite
-    .then((result) => {
-      if (result === true) {
-        spanConfirm.style.color = "#1BBA02";
-        spanConfirm.textContent =
-          "Votre message à bien été transmis, merci beaucoup";
+  //Je récupère ensuite la réponse de mon fichier php (en Json)
+  //Donc traduction =>
+  .then(response =>response.json())
 
-        //Reset des error
-        resetError();
+  //Je récupère le résultat et l'exploite
+  .then((result) => {
 
-        //Reset du Form
-        form.reset();
-      } else if (result === false) {
-        spanConfirm.style.color = "#FF3C30";
-        spanConfirm.textContent = "Une erreur s'est produite";
-      } else if (result.includes("inputEmailNonValide")) {
-        spanConfirm.style.color = "#FF3C30";
-        spanConfirm.textContent = "Le champs mail n'est pas valide.";
-      } else {
-        spanConfirm.style.color = "#FF3C30";
-        spanConfirm.textContent = "Les champs ne peuvent pas être vides.";
-      }
-    });
+    if(result === true){
+
+      spanConfirm.style.color= "#1BBA02"
+      spanConfirm.textContent = "Votre message à bien été transmis, merci beaucoup";
+
+      //Reset des error
+      resetError();
+
+      //Reset du Form
+      form.reset();
+
+    } else if(result === false){
+
+      spanConfirm.style.color= "#FF3C30";
+      spanConfirm.textContent = "Une erreur s'est produite";
+
+    } else if(result.includes('inputEmailNonValide')) {
+      
+      spanConfirm.style.color= "#FF3C30";
+      spanConfirm.textContent = "Le champs mail n'est pas valide.";
+
+    } else {
+
+      spanConfirm.style.color= "#FF3C30";
+      spanConfirm.textContent = "Les champs ne peuvent pas être vides.";
+    }
+  })
 }
 
+
 //reset des inputs
-function resetError() {
+function resetError(){
+
   errorName.textContent = " ";
   errorEmail.textContent = " ";
   errorTextForm.textContent = " ";
