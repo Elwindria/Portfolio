@@ -451,6 +451,11 @@ h4{
     display: contents;
 }
 
+.my_cv{
+    text-decoration: none;
+    display: unset;
+}
+
 .link_in_presentation{
     display: unset;
     text-decoration: none;
