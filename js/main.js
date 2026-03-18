@@ -105,6 +105,9 @@ const arrow = document.querySelector("#arrow")
 
 const linkBaume = document.querySelectorAll('.link_baume');
 const linkBaumeAdmin = document.querySelectorAll('.link_baume_admin');
+const linkHoneyLance = document.querySelectorAll('.link_honeylance');
+const linkTaxi = document.querySelectorAll('.link_taxi');
+const linkFilm = document.querySelectorAll('.link_film');
 const linkShifumi = document.querySelectorAll('.link_shifumi');
 const linkBash = document.querySelectorAll('.link_bash');
 
@@ -114,14 +117,8 @@ const pageTitleSkill = document.querySelector('#page_title_skill');
 const allTraitDescription = document.querySelectorAll('.trait_description');
 const allPSkill = document.querySelectorAll('.p_skill');
 const allSpanDesc = document.querySelectorAll('.span_desc');
-const allSkillBar = document.querySelectorAll('.skill_bar');
-const allFrontSkillBar = document.querySelectorAll('.front_skill_bar');
+const allLogoSkill = document.querySelectorAll('.logo_skill');
 const Iam = document.querySelector('#Iam');
-
-const skillBar1 = document.querySelector('#skill_bar_1');
-const skillBar2 = document.querySelector('#skill_bar_2');
-const skillBar3 = document.querySelector('#skill_bar_3');
-const skillBar4 = document.querySelector('#skill_bar_4');
 
 //Const pour contact
 const contactPage = document.querySelector('#contact');
@@ -147,7 +144,6 @@ allBtnNavBar.forEach((btn, index) => {
   btn.addEventListener('click', function(){
 
     let indexNewPage = index;
-    console.log(blockSpam, allSection[index]);
 
     // Ajout d'une protection anti-spam
     if(blockSpam !== "actif"){
@@ -214,6 +210,47 @@ function reset(indexNewPage){
     }
   });
 }
+
+// Link special de la page présentation start
+
+//J'ai des liens dans ma page présentation qui renvoit à des pages de mon portfolio. Hors c'est toujours ma barre de nav qui gère...
+//Donc je suis obligé de faire des fonctions spéciales pour activer quand même les pages.
+
+// All const des link présentation
+const linkCompetence = document.querySelector("#link_competence");
+const linkRealisation = document.querySelector("#link_realisation");
+
+linkRealisation.addEventListener('click', function(){
+
+  let indexNewPage = "2";
+  blockSpam = "actif";
+
+  // On reset alors la page active, donc on lance l'annimation de sortie
+  reset(indexNewPage);
+
+  //On rénialise après 2s le blockSpam
+  setTimeout(() => {
+    blockSpam = "none";
+  }, 2000);
+
+});
+
+linkCompetence.addEventListener('click', function(){
+
+  let indexNewPage = "3";
+  blockSpam = "actif";
+
+  // On reset alors la page active, donc on lance l'annimation de sortie
+  reset(indexNewPage);
+
+  //On rénialise après 2s le blockSpam
+  setTimeout(() => {
+    blockSpam = "none";
+  }, 2000);
+
+});
+
+// Link special de la page présentation stop
 
 // Naviguation avec la barre de Nav - Reset - synchronisation - END
 //=======================================================
@@ -360,28 +397,20 @@ function spawnSkill(){
 
   }, 600);
 
-  // Les bar de skill
+  //Les logo
   setTimeout(() => {
-    skillBar1.style.transform = "translateX(0)";
-  }, 700);
-  setTimeout(() => {
-    skillBar2.style.transform = "translateX(0)";
-  }, 1000);
-  setTimeout(() => {
-    skillBar3.style.transform = "translateX(0)";
-  }, 1300);
-  setTimeout(() => {
-    skillBar4.style.transform = "translateX(0)";
-  }, 1600);
 
-  //les bar de skill blanches qui progress
-  let p=1;
-  setTimeout(() => {
-    allFrontSkillBar.forEach(front => { 
-      front.setAttribute("id", 'front_'+p);
-      p++
-    });
-  }, 1900);
+    let p=0;
+
+    allLogoSkill.forEach(logo => {
+      p += 100;
+
+      setTimeout(() => {
+        logo.style.transform = "translateY(0)";
+      }, p);
+    });  
+
+  }, 700);
 }
 
 // Apparition de Contact
@@ -406,7 +435,7 @@ function spawnContact(){
   }, 50);
 
   setTimeout(() => {
-    for(let h=0;h<4;h++){
+    for(let h=0;h<3;h++){
       allInput[h].placeholder= placeholder[h];
     }
   }, 400);
@@ -608,17 +637,11 @@ function resetSkill(indexNewPage){
 
   setTimeout(() => {
 
-    //les bar de skill blanches qui progress
-    allFrontSkillBar.forEach(front => { 
-      front.style.transition = "all .7s ease-in-out";
-      front.setAttribute("id", "");
-    });
-
-    // Les bar de skill
-    allSkillBar.forEach(bar => {
-      bar.style.transition = "all .7s ease-in-out";
-      bar.style.transform = "translateX(-120%)";
-    });
+    //Les logo 
+    allLogoSkill.forEach(logo => {
+      logo.style.transition = "all .7s ease-in-out";
+        logo.style.transform = "translateY(120%)";
+    });  
 
     //le titre
     pageTitleSkill.style.transition = "all .7s ease-in-out";
@@ -645,11 +668,8 @@ function resetSkill(indexNewPage){
   setTimeout(() => {
 
   //reset de tous les timers
-  allFrontSkillBar.forEach(front => { 
-    front.style.transition = "all 1.5s ease-in-out";
-  });
-  allSkillBar.forEach(bar => {
-    bar.style.transition = "all 1.5s ease-in-out";
+  allLogoSkill.forEach(logo => {
+    logo.style.transition = "all 1.5s ease-in-out";
   });
 
   Iam.style.transition = "all 1.5s ease-in-out";
@@ -691,7 +711,7 @@ function resetContact(indexNewPage){
 
   setTimeout(() => {
     allPContact.forEach(p => {
-      p.style.transform = "translateY(500%)";
+      p.style.transform = "translateY(700%)";
     });
   }, 300);
 
@@ -730,15 +750,36 @@ function resetContact(indexNewPage){
 // Link vers Baume.fr
 linkBaume.forEach(link => {
   link.addEventListener('click', ()=>{
-    window.open('https://pierrel.promo-159.codeur.online/BaumeLesMessieurs/', '_blank');
+    window.open('https://baume-les-messieurs.elwindria.com/', '_blank');
   })  
 });
 
-// linkk vers Baume.fr/admin
+// link vers Baume.fr/admin
 linkBaumeAdmin.forEach(link => {
   link.addEventListener('click', ()=>{
-    window.open('https://pierrel.promo-159.codeur.online/BaumeLesMessieurs/admin.html', '_blank');
+    window.open('https://baume-les-messieurs.elwindria.com/admin.html', '_blank');
   })  
+});
+
+// Link vers HoneyLance
+linkHoneyLance.forEach(link => {
+  link.addEventListener('click', ()=>{
+    window.open('https://honeylance.elwindria.com/', '_blank');
+  })
+});
+
+// Link vers Taxi
+linkTaxi.forEach(link => {
+  link.addEventListener('click', ()=>{
+    window.open('https://taxi-de-la-planche.elwindria.com/', '_blank');
+  })
+});
+
+// Link vers Film
+linkFilm.forEach(link => {
+  link.addEventListener('click', ()=>{
+    window.open('https://film.elwindria.com/', '_blank');
+  })
 });
 
 // Link vers le Github Shifumi
@@ -787,3 +828,127 @@ arrow.addEventListener('click', ()=>{
 })
 
 /* Animation Arrow de Achievement Stop */
+/* Form to Email START */
+
+//All Const Form
+const form = document.querySelector('#form');
+const inputName = document.querySelector('#name');
+const inputEmail = document.querySelector('#email');
+const inputTextForm = document.querySelector('#text_form');
+const inputSubmit = document.querySelector("#submit");
+
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+const errorName = document.querySelector('#error_name');
+const errorEmail = document.querySelector('#error_email');
+const errorTextForm = document.querySelector('#error_text_form');
+const spanConfirm = document.querySelector('#confirm');
+
+submit.addEventListener('click', function(e){
+  //empeche le rafraichissement de la page
+  e.preventDefault();
+
+  //Reset des message d'error
+  resetError();
+
+  //Lance la vérification JS du Form et de ses inputs
+  checkValidityForm();
+})
+
+//Function vérification inputs du Form
+function checkValidityForm(){
+
+  //initialisation d'une variable validate
+  let validate = true;
+
+  //Vérification de l'input Name
+  if(inputName.validity.valueMissing){
+    errorName.textContent = "Le champ est obligatoire.";
+    validate = false;
+  } else if(inputName.validity.typeMismatch){
+    errorName.textContent = "Le champ n'est pas valide";
+    validate = false;
+  }
+
+  //Vérification de l'input Email
+  if(inputEmail.validity.valueMissing){
+    errorEmail.textContent = "Le champ est obligatoire.";
+    validate = false;
+  } else if(inputEmail.validity.typeMismatch){
+    errorEmail.textContent = "Le champ mail n'est pas valide";
+    validate = false;
+  } else if(!emailRegex.test(inputEmail.value)){
+    errorEmail.textContent = "Le champ mail n'est pas valide";
+    validate = false;
+}
+
+  //Vérification de l'input TextForm
+  if(inputTextForm.validity.valueMissing){
+    errorTextForm.textContent = "Le champ est obligatoire.";
+    validate = false;
+  } else if(inputTextForm.validity.typeMismatch){
+    errorTextForm.textContent = "Le champ n'est pas valide";
+    validate = false;
+  }
+
+  //Si validate = true alors par d'erreur donc on peut lancer la request Ajax 
+
+  if(validate){
+    createAjaxForFormToEmail();
+  }
+}
+
+function createAjaxForFormToEmail(){
+
+  //Création d'un FormData pour récup les infos de notre Form
+  const formData = new FormData(form);
+
+  //J'envoie mon formData en méthod POST au fichier formToEmail.php
+  fetch("php/formToEmail.php", { method: "POST", body: formData})
+
+  //Je récupère ensuite la réponse de mon fichier php (en Json)
+  //Donc traduction =>
+  .then(response =>response.json())
+
+  //Je récupère le résultat et l'exploite
+  .then((result) => {
+
+    if(result === true){
+
+      spanConfirm.style.color= "#1BBA02"
+      spanConfirm.textContent = "Votre message à bien été transmis, merci beaucoup";
+
+      //Reset des error
+      resetError();
+
+      //Reset du Form
+      form.reset();
+
+    } else if(result === false){
+
+      spanConfirm.style.color= "#FF3C30";
+      spanConfirm.textContent = "Une erreur s'est produite";
+
+    } else if(result.includes('inputEmailNonValide')) {
+      
+      spanConfirm.style.color= "#FF3C30";
+      spanConfirm.textContent = "Le champs mail n'est pas valide.";
+
+    } else {
+
+      spanConfirm.style.color= "#FF3C30";
+      spanConfirm.textContent = "Les champs ne peuvent pas être vides.";
+    }
+  })
+}
+
+
+//reset des inputs
+function resetError(){
+
+  errorName.textContent = " ";
+  errorEmail.textContent = " ";
+  errorTextForm.textContent = " ";
+}
+
+/* Form to Email END */
