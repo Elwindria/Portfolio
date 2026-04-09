@@ -87,12 +87,15 @@ if($reponse){
         echo json_encode($reponse);
     } catch (Exception $e) {
         // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        error_log('PHPMailer ErrorInfo: ' . $mail->ErrorInfo);
+        error_log('PHPMailer Exception: ' . $e->getMessage());
+
         http_response_code(500);
         echo json_encode([
             'success' => false,
             'error' => $mail->ErrorInfo,
             'exception' => $e->getMessage()
-    ]);
+        ]);
     }
 
 } else {
