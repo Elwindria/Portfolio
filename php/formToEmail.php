@@ -1,5 +1,7 @@
 <?php
 
+header('Content-Type: application/json');
+
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -76,8 +78,12 @@ if($reponse){
         echo json_encode($reponse);
     } catch (Exception $e) {
         // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-        $reponse = false;
-        echo json_encode($reponse);
+        http_response_code(500);
+        echo json_encode([
+            'success' => false,
+            'error' => $mail->ErrorInfo,
+            'exception' => $e->getMessage()
+    ]);
     }
 
 } else {
