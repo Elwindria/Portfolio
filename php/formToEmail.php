@@ -62,7 +62,7 @@ if($reponse){
         //Server settings
         $mail->SMTPDebug = 0;                                   //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+        $mail->Host = gethostbyname('smtp.gmail.com');                    //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = $gmail;                               //SMTP username
         $mail->Password   = $gmail_password;                               //SMTP password
